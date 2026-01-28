@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccyadhyf8l2rr"]
+[gd_scene load_steps=3 format=3 uid="uid://ccyadhyf8l2rr"]
 
+[ext_resource type="Script" uid="uid://cpgb0pxerqcl8" path="res://features/menu/menu.gd" id="1_r7vyc"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_stkh0"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" node_paths=PackedStringArray("play_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r7vyc")
+play_button = NodePath("CenterContainer/VBoxContainer/PlayButton")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -19,3 +22,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_stkh0")
 stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
