@@ -1,14 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2ubsbbrslsgp"]
+[gd_scene load_steps=3 format=3 uid="uid://c2ubsbbrslsgp"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_cwlba"]
+[ext_resource type="Script" uid="uid://b1wq8pfrv6e8o" path="res://src/game/story/story.gd" id="1_dnowo"]
 
-[node name="Story" type="Control"]
+[node name="Story" type="Control" node_paths=PackedStringArray("name_label", "content_label", "background_texture_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dnowo")
+name_label = NodePath("MarginContainer/VBoxContainer/HeaderMarginContainer/PanelContainer/MarginContainer/NameLabel")
+content_label = NodePath("MarginContainer/VBoxContainer/BodyPanelContainer/MarginContainer/ContentRichTextLabel")
+background_texture_rect = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

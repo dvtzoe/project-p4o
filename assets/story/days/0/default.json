@@ -1,0 +1,18 @@
+{
+  "story": [
+    {
+      "type": "background",
+      "file": "res://assets/icon.svg"
+    },
+    {
+      "type": "dialogue",
+      "character": "Riku",
+      "text": "Say meow."
+    },
+    {
+      "type": "dialogue",
+      "character": "Erina",
+      "text": "No."
+    }
+  ]
+}

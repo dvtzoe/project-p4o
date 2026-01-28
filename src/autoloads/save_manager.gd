@@ -8,5 +8,7 @@ func new():
 func load_save(slot: String):
     current_save = ResourceLoader.load("user://saves/%s.tres" % slot)
 
-func save_save(slot: String):
+func save_save(slot: String = ""):
+    if slot == "":
+        slot = "slot0"
     ResourceSaver.save(current_save, "user://saves/%s.tres" % slot)

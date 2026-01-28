@@ -3,15 +3,11 @@ extends Control
 @export var play_button: Button
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_new_button_pressed() -> void:
+    SaveManager.new()
+    get_tree().change_scene_to_file("res://src/game/game.tscn")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
-func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://features/game/game.tscn")
+func _on_load_button_pressed() -> void:
+    SaveManager.load_save("slot0")
+    get_tree().change_scene_to_file("res://src/game/game.tscn")
