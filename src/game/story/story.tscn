@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_cwlba"]
 [ext_resource type="Script" uid="uid://b1wq8pfrv6e8o" path="res://src/game/story/story.gd" id="1_dnowo"]
 
-[node name="Story" type="Control" node_paths=PackedStringArray("name_label", "content_label", "background_texture_rect")]
+[node name="Story" type="Control" node_paths=PackedStringArray("name_label", "content_label", "background_texture_rect", "timer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ script = ExtResource("1_dnowo")
 name_label = NodePath("MarginContainer/VBoxContainer/HeaderMarginContainer/PanelContainer/MarginContainer/NameLabel")
 content_label = NodePath("MarginContainer/VBoxContainer/BodyPanelContainer/MarginContainer/ContentRichTextLabel")
 background_texture_rect = NodePath("TextureRect")
+timer = NodePath("Timer")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -75,3 +76,6 @@ theme_override_constants/margin_bottom = 16
 [node name="ContentRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/BodyPanelContainer/MarginContainer"]
 layout_mode = 2
 text = "???"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
