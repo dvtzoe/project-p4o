@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccyadhyf8l2rr"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_stkh0"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_stkh0"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
