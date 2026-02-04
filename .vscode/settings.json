@@ -1,4 +1,7 @@
 {
   "godotTools.lsp.headless": true,
-  "svg.preview.background": "transparent"
+  "svg.preview.background": "transparent",
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  }
 }
