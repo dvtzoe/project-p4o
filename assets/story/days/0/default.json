@@ -6,13 +6,115 @@
     },
     {
       "type": "dialogue",
-      "character": "Riku",
-      "text": "Say meow."
+      "character": "?",
+      "text": "Hey! You! Finally awake?"
     },
     {
       "type": "dialogue",
-      "character": "Erina",
-      "text": "no."
+      "character": "?",
+      "text": "Hello? Can you hear me?"
+    },
+    {
+      "type": "dialogue",
+      "character": "?",
+      "text": "Say something!"
+    },
+    {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "Who are you?"
+        },
+        {
+          "text": "Where am I?"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "?",
+      "text": "Great question."
+    },
+    {
+      "type": "dialogue",
+      "character": "?",
+      "text": "I have no idea."
+    },
+    {
+      "type": "dialogue",
+      "character": "?",
+      "text": "Don't worry, we'll figure things out together."
+    },
+    {
+      "type": "dialogue",
+      "character": "?",
+      "text": "I'll name myself... Umm..."
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "Aiko"
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "Because I like that name."
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "And you will be named 'Hikari'."
+    },
+    {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "Do I not have a choice?"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "You absolutely do not! I have a katana and I'm not afraid to use it."
+    },
+    {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "I really don't have a choice, do I?"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "I'll go explore outside."
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "There're some comms equipment in the building, but there're no signals from other people."
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "We'll communicate using them."
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "You will stay here and watch over our base. Since you have no weapons."
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "And no, I won't give you my katana. Since it's mine."
+    },
+    {
+      "type": "dialogue",
+      "character": "Aiko",
+      "text": "We'll see how things go. I'll be off!"
     },
     {
       "type": "stage"
