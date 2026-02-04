@@ -13,7 +13,7 @@ var max_id: int = 0
 func spawn_unit(type: String, coord: Vector2i) -> void:
     var unit_scene: PackedScene = load(Constants.UNITS_TABLE[type])
     var unit_instance: Node2D = unit_scene.instantiate()
-    unit_instance.position = PositionAdapter.tile_to_px(coord)
+    unit_instance.position = HexUtils.tile_to_px(coord)
     
     unit_instance.set("type", type)
     unit_instance.set("id", max_id)
@@ -45,7 +45,7 @@ func _select_tile(cell: Vector2i) -> void:
     is_selecting_tile = true
     selected_tile = cell
     if unit_at.has(cell):
-        highlight.position = PositionAdapter.tile_to_px(cell)
+        highlight.position = HexUtils.tile_to_px(cell)
         highlight.visible = true
         highlight.self_modulate = Color(0, 0.5, 1, 0.5)
 
@@ -59,7 +59,7 @@ func _on_tile_map_layer_tile_clicked(cell: Vector2i) -> void:
         if unit.has_method("can_move_to"):
             var can_move_to = unit.call("can_move_to", cell)
             if can_move_to and not unit_at.has(cell):
-                unit.position = PositionAdapter.tile_to_px(cell)
+                unit.position = HexUtils.tile_to_px(cell)
                 unit.set("coord", cell)
                 unit_at[cell] = unit_at[selected_tile]
                 unit_at.erase(selected_tile)
