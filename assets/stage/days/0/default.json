@@ -1,37 +1,34 @@
 {
-  "stories": {
-    "intro": [
-      {
-        "type": "dialogue",
-        "character": "Aiko",
-        "text": "Hello? Is the comms working? Can you hear me?"
-      },
-      {
-        "type": "dialogue",
-        "character": "Aiko",
-        "text": "Great! It's working!"
-      },
-      {
-        "type": "choice",
-        "choices": [
-          {
-            "text": "I haven't said anything yet."
-          }
-        ]
-      },
-      {
-        "type": "dialogue",
-        "character": "Aiko",
-        "text": "Oh, I think I see something! I'll go check it out!"
-      }
-    ]
-  },
   "waves": [
     {
       "hooks": [
         {
           "type": "story",
-          "story": "intro"
+          "story": [
+            {
+              "type": "dialogue",
+              "character": "Aiko",
+              "text": "Hello? Is the comms working? Can you hear me?"
+            },
+            {
+              "type": "dialogue",
+              "character": "Aiko",
+              "text": "Great! It's working!"
+            },
+            {
+              "type": "choice",
+              "choices": [
+                {
+                  "text": "I haven't said anything yet."
+                }
+              ]
+            },
+            {
+              "type": "dialogue",
+              "character": "Aiko",
+              "text": "Oh, I think I see something! I'll go check it out!"
+            }
+          ]
         }
       ],
       "spawn": [

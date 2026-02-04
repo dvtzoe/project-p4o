@@ -1,6 +1,7 @@
 extends Node
 
 @export var highlight: Sprite2D
+@export var canvas_layer: CanvasLayer
 
 var is_selecting_tile: bool = false
 var selected_tile: Vector2i
@@ -40,6 +41,18 @@ func _ready() -> void:
                     var unit_team: String = unit_entry["team"]
                     var unit_coordinate = Vector2i(unit_coord_array[0], unit_coord_array[1])
                     spawn_unit(unit_type, unit_coordinate, unit_team)
+                if wave.has("hooks"):
+                    for hook in wave["hooks"]:
+                        match hook["type"]:
+                            "story":
+                                var story_scene = preload("res://src/game/story/story.tscn")
+                                var story_instance = story_scene.instantiate()
+                                canvas_layer.add_child(story_instance)
+                                var story_data = hook["story"]
+                                await story_instance.load_story(story_data)
+                                story_instance.queue_free()
+                            _:
+                                print("Unknown hook type: %s" % hook["type"])
     file.close()
 
 

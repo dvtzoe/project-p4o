@@ -15,9 +15,10 @@ tile_shape = 3
 tile_size = Vector2i(110, 128)
 sources/0 = SubResource("TileSetAtlasSource_6mphb")
 
-[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("highlight")]
+[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("highlight", "canvas_layer")]
 script = ExtResource("1_dwwv6")
 highlight = NodePath("Highlight")
+canvas_layer = NodePath("CanvasLayer")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=107359172]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wMAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAABAP3/AAAAAAAAAAACAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAA=")
@@ -35,5 +36,7 @@ texture = ExtResource("1_e4yij")
 [node name="Shadow" type="Sprite2D" parent="." unique_id=846537825]
 visible = false
 texture = ExtResource("1_e4yij")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1515538986]
 
 [connection signal="tile_clicked" from="TileMapLayer" to="." method="_on_tile_map_layer_tile_clicked"]

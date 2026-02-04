@@ -10,6 +10,12 @@ func start_story() -> void:
     var story_instance = story_scene.instantiate()
     story_instance.connect("start_stage", Callable(self , "start_stage"))
     get_tree().current_scene.add_child(story_instance)
+    var file = FileAccess.open("res://assets/story/days/%d/%s.json" % [SaveManager.current_save.day, SaveManager.current_save.route], FileAccess.READ)
+    if file:
+        var yaml_content: String = file.get_as_text()
+        var story_data = JSON.parse_string(yaml_content)
+        story_instance.load_story(story_data)
+    file.close()
 
 func _ready() -> void:
     start_story()
