@@ -3,9 +3,14 @@
     {
       "spawn": [
         {
-          "type": "pawn",
+          "type": "base",
           "team": "player",
           "coordinate": [0, 0]
+        },
+        {
+          "type": "pawn",
+          "team": "player",
+          "coordinate": [-1, -1]
         },
         {
           "type": "pawn",

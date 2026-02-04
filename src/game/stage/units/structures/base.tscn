@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://s6gonjg0so0f"]
+
+[ext_resource type="PackedScene" uid="uid://da18odvhcxaks" path="res://src/game/stage/units/unit.tscn" id="1_f5nao"]
+[ext_resource type="Texture2D" uid="uid://cliomqbbluoh8" path="res://assets/stage/units/structures/base.svg" id="2_gd3o1"]
+
+[node name="Base" unique_id=1204601962 instance=ExtResource("1_f5nao")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=807185017]
+texture = ExtResource("2_gd3o1")
