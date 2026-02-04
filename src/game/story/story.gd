@@ -4,6 +4,7 @@ extends Control
 @export var content_label: RichTextLabel
 @export var background_texture_rect: TextureRect
 
+signal start_stage
 signal ui_accept_pressed
 
 var is_streaming: bool = false
@@ -13,8 +14,9 @@ var buffered_text: String = ""
 var time_since_last_char: float = 0.0
 var char_interval: float = 0.05
 
-func load_story(file_path: String) -> void:
-    var file = FileAccess.open(file_path, FileAccess.READ)
+func load_story() -> void:
+    print("Loading story for day %d, route %s" % [SaveManager.current_save.day, SaveManager.current_save.route])
+    var file = FileAccess.open("res://assets/story/days/%d/%s.json" % [SaveManager.current_save.day, SaveManager.current_save.route], FileAccess.READ)
     if file:
         var yaml_content: String = file.get_as_text()
         var story_data = JSON.parse_string(yaml_content)
@@ -37,15 +39,17 @@ func load_story(file_path: String) -> void:
                         is_streaming = true
                         await ui_accept_pressed
                         is_streaming = false
+                    "stage":
+                        emit_signal("start_stage")
+                        queue_free()
 
                     _:
                         print("Unknown story entry type: %s" % entry["type"])
-                    
+
     file.close()
 
-
-func start(file_path: String) -> void:
-    load_story(file_path)
+func _ready() -> void:
+    load_story()
 
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed or event.is_action_pressed("ui_accept"):
