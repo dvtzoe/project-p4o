@@ -28,6 +28,9 @@
       "type": "dialogue",
       "character": "Erina",
       "text": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "type": "stage"
     }
   ]
 }
