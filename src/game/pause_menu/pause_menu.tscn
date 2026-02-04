@@ -72,3 +72,4 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="text_submitted" from="TabContainer/Saves/VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_save_pressed"]

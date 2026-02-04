@@ -1,9 +1,12 @@
 extends Control
 
 @export var saves_container: VBoxContainer
-@export var loads_container: VBoxContainer
+@export var save_name_line_edit: LineEdit
 
-func _on_save_pressed(slot_name: String) -> void:
+func _on_save_pressed() -> void:
+    var slot_name := save_name_line_edit.text
+    if slot_name == "":
+        slot_name = "slot0"
     SaveManager.save_save(slot_name)
 
 func _ready() -> void:
