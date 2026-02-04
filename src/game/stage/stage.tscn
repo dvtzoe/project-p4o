@@ -16,6 +16,7 @@ tile_size = Vector2i(110, 128)
 sources/0 = SubResource("TileSetAtlasSource_6mphb")
 
 [node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("highlight", "canvas_layer")]
+process_mode = 1
 script = ExtResource("1_dwwv6")
 highlight = NodePath("Highlight")
 canvas_layer = NodePath("CanvasLayer")

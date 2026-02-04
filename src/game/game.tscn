@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://chmam4d10qn3c"]
+[gd_scene format=3 uid="uid://chmam4d10qn3c"]
 
 [ext_resource type="Script" uid="uid://diyk73a4i4fyd" path="res://src/game/game.gd" id="1_qnjlk"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" unique_id=1008681327]
+process_mode = 3
 script = ExtResource("1_qnjlk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1561343792]
+layer = 2

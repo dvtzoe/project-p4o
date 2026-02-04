@@ -5,6 +5,7 @@
 
 [node name="PauseMenu" type="Control" unique_id=23215452 node_paths=PackedStringArray("saves_container")]
 process_mode = 2
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
