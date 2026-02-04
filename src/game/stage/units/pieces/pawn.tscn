@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://r52hatpmrfic"]
+
+[ext_resource type="PackedScene" uid="uid://b0mkb7jwiad75" path="res://src/game/stage/units/pieces/piece.tscn" id="1_tyx24"]
+[ext_resource type="Script" uid="uid://c658op2pf1eus" path="res://src/game/stage/units/pieces/pawn.gd" id="2_bdd6p"]
+
+[node name="Pawn" unique_id=1204601962 instance=ExtResource("1_tyx24")]
+script = ExtResource("2_bdd6p")
