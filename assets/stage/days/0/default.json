@@ -4,6 +4,11 @@
       "spawn": [
         {
           "type": "pawn",
+          "team": "player",
+          "coordinate": [0, 0]
+        },
+        {
+          "type": "pawn",
           "team": "enemy",
           "coordinate": [1, 0]
         },

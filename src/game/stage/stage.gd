@@ -1,6 +1,9 @@
 extends Node
 
-var unit_at: Dictionary[Vector2i, int] = {}
+var is_selecting_tile: bool = false
+var selected_tile: Vector2i
+
+var unit_at: Dictionary[Vector2i, Node2D] = {}
 
 var current_wave: int = 0
 var max_id: int = 0
@@ -14,7 +17,7 @@ func spawn_unit(type: String, coordinate: Vector2i) -> void:
     unit_instance.set("id", max_id)
     unit_instance.set("coordinate", coordinate)
 
-    unit_at[coordinate] = max_id
+    unit_at[coordinate] = unit_instance
 
     max_id += 1
     add_child(unit_instance)
@@ -41,3 +44,17 @@ func _ready() -> void:
                     var unit_coordinate = Vector2i(unit_coord_array[0], unit_coord_array[1])
                     spawn_unit(unit_type, unit_coordinate)
     file.close()
+
+
+func _on_tile_map_layer_tile_clicked(cell: Vector2i) -> void:
+    if is_selecting_tile and unit_at.has(selected_tile):
+        var unit = unit_at[selected_tile]
+        if unit.has_method("move_to"):
+            unit.call("move_to", cell)
+        is_selecting_tile = false
+    is_selecting_tile = true
+    selected_tile = cell
+
+func _input(event: InputEvent) -> void:
+    if is_selecting_tile and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+        is_selecting_tile = false
