@@ -10,26 +10,19 @@ var unit_at: Dictionary[Vector2i, Node2D] = {}
 var current_wave: int = 0
 var max_id: int = 0
 
-func spawn_unit(type: String, coordinate: Vector2i) -> void:
+func spawn_unit(type: String, coord: Vector2i) -> void:
     var unit_scene: PackedScene = load(Constants.UNITS_TABLE[type])
     var unit_instance: Node2D = unit_scene.instantiate()
-    unit_instance.position = PositionAdapter.tile_to_px(coordinate)
+    unit_instance.position = PositionAdapter.tile_to_px(coord)
     
     unit_instance.set("type", type)
     unit_instance.set("id", max_id)
-    unit_instance.set("coordinate", coordinate)
+    unit_instance.set("coord", coord)
 
-    unit_at[coordinate] = unit_instance
+    unit_at[coord] = unit_instance
 
     max_id += 1
     add_child(unit_instance)
-    unit_instance.connect("move", Callable(self , "_on_unit_move"))
-
-func _on_unit_move(from_coord: Vector2i, to_coord: Vector2i) -> void:
-    if unit_at.has(from_coord):
-        var unit_id = unit_at[from_coord]
-        unit_at.erase(from_coord)
-        unit_at[to_coord] = unit_id
 
 func _ready() -> void:
     var file = FileAccess.open("res://assets/stage/days/%d/default.json" % SaveManager.current_save.day, FileAccess.READ)
@@ -63,8 +56,13 @@ func _deselect_tile() -> void:
 func _on_tile_map_layer_tile_clicked(cell: Vector2i) -> void:
     if is_selecting_tile and unit_at.has(selected_tile):
         var unit = unit_at[selected_tile]
-        if unit.has_method("move_to"):
-            unit.call("move_to", cell)
+        if unit.has_method("can_move_to"):
+            var can_move_to = unit.call("can_move_to", cell)
+            if can_move_to and not unit_at.has(cell):
+                unit.position = PositionAdapter.tile_to_px(cell)
+                unit.set("coord", cell)
+                unit_at[cell] = unit_at[selected_tile]
+                unit_at.erase(selected_tile)
         _deselect_tile()
         return
     _select_tile(cell)
