@@ -1,0 +1,18 @@
+{
+  "waves": [
+    {
+      "spawn": [
+        {
+          "type": "pawn",
+          "team": "enemy",
+          "coordinate": [1, 0]
+        },
+        {
+          "type": "pawn",
+          "team": "enemy",
+          "coordinate": [0, 1]
+        }
+      ]
+    }
+  ]
+}
