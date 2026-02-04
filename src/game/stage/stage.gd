@@ -49,7 +49,10 @@ func _select_tile(cell: Vector2i) -> void:
     if unit_at.has(cell):
         highlight.position = HexUtils.tile_to_px(cell)
         highlight.visible = true
-        highlight.self_modulate = Color(0, 0.5, 1, 0.5)
+        if unit_at[cell].get("team") == "player":
+            highlight.self_modulate = Color(0, 0.5, 1, 0.5)
+        else:
+            highlight.self_modulate = Color(1, 0, 0, 0.5)
 
 func _deselect_tile() -> void:
     is_selecting_tile = false
