@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c74fpkywhjkn0" path="res://src/game/stage/stage.gd" id="1_dwwv6"]
 [ext_resource type="Texture2D" uid="uid://dlniqc04j2lrq" path="res://assets/stage/tiles/hexagon.svg" id="1_e4yij"]
+[ext_resource type="Script" uid="uid://bnh2xhqiowppf" path="res://src/game/stage/camera.gd" id="3_k8r72"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mphb"]
 texture = ExtResource("1_e4yij")
@@ -25,3 +26,7 @@ script = ExtResource("1_dwwv6")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=107359172]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wMAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAABAP3/AAAAAAAAAAACAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_xm7l5")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1556455645]
+script = ExtResource("3_k8r72")
+move_speed = 256.0
