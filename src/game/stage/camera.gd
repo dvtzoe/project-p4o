@@ -20,3 +20,10 @@ func _process(delta: float) -> void:
         if Input.is_action_pressed("speed_down"):
             input_vector *= 0.5
         position += input_vector * move_speed * delta
+
+func _input(event: InputEvent) -> void:
+    if event is InputEventMouseButton and event.is_pressed():
+        if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+            zoom += Vector2.ONE * 0.1
+        elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+            zoom -= Vector2.ONE * 0.1
