@@ -1,5 +1,7 @@
 extends Node
 
+@export var highlight: Sprite2D
+
 var is_selecting_tile: bool = false
 var selected_tile: Vector2i
 
@@ -46,15 +48,27 @@ func _ready() -> void:
     file.close()
 
 
+func _select_tile(cell: Vector2i) -> void:
+    is_selecting_tile = true
+    selected_tile = cell
+    if unit_at.has(cell):
+        highlight.position = PositionAdapter.tile_to_px(cell)
+        highlight.visible = true
+        highlight.self_modulate = Color(0, 0.5, 1, 0.5)
+
+func _deselect_tile() -> void:
+    is_selecting_tile = false
+    highlight.visible = false
+
 func _on_tile_map_layer_tile_clicked(cell: Vector2i) -> void:
     if is_selecting_tile and unit_at.has(selected_tile):
         var unit = unit_at[selected_tile]
         if unit.has_method("move_to"):
             unit.call("move_to", cell)
-        is_selecting_tile = false
-    is_selecting_tile = true
-    selected_tile = cell
+        _deselect_tile()
+        return
+    _select_tile(cell)
 
 func _input(event: InputEvent) -> void:
     if is_selecting_tile and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-        is_selecting_tile = false
+        _deselect_tile()
