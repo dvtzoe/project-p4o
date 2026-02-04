@@ -60,6 +60,10 @@ func _select_tile(cell: Vector2i) -> void:
     is_selecting_tile = true
     selected_tile = cell
     if unit_at.has(cell):
+        var unit_status_scene = preload("res://src/game/stage/unit_status.tscn")
+        var unit_status_instance = unit_status_scene.instantiate()
+        unit_status_instance.call("show_info", unit_at[cell])
+        canvas_layer.add_child(unit_status_instance)
         highlight.position = HexUtils.tile_to_px(cell)
         highlight.visible = true
         if unit_at[cell].get("team") == "player":
@@ -68,6 +72,8 @@ func _select_tile(cell: Vector2i) -> void:
             highlight.self_modulate = Color(1, 0, 0, 0.5)
 
 func _deselect_tile() -> void:
+    if canvas_layer.has_node("UnitStatus"):
+        canvas_layer.get_node("UnitStatus").queue_free()
     is_selecting_tile = false
     highlight.visible = false
 

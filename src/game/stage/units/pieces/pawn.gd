@@ -6,3 +6,6 @@ func can_move_to(to_coord: Vector2i) -> bool:
     if to_coord not in adjacent_hexes:
         return false
     return true
+
+func _ready() -> void:
+    type_name = "Pawn"

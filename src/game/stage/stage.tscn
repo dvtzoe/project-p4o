@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dkjspea5usini"]
 
 [ext_resource type="Script" uid="uid://c74fpkywhjkn0" path="res://src/game/stage/stage.gd" id="1_dwwv6"]
-[ext_resource type="Texture2D" uid="uid://dlniqc04j2lrq" path="res://assets/stage/tiles/hexagon.svg" id="1_e4yij"]
+[ext_resource type="Texture2D" uid="uid://dlniqc04j2lrq" path="res://assets/stage/sprites/tiles/hexagon.svg" id="1_e4yij"]
 [ext_resource type="Script" uid="uid://eftlnf5t2wq3" path="res://src/game/stage/tile_map_layer.gd" id="3_8en0l"]
 [ext_resource type="Script" uid="uid://bnh2xhqiowppf" path="res://src/game/stage/camera.gd" id="3_k8r72"]
 

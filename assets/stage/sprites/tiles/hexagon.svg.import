@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlniqc04j2lrq"
-path="res://.godot/imported/hexagon.svg-4af0f68630f88adafbf9d8b8fe2eff42.ctex"
+path="res://.godot/imported/hexagon.svg-c9259952b09419795aa0d648d69b77cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stage/tiles/hexagon.svg"
-dest_files=["res://.godot/imported/hexagon.svg-4af0f68630f88adafbf9d8b8fe2eff42.ctex"]
+source_file="res://assets/stage/sprites/tiles/hexagon.svg"
+dest_files=["res://.godot/imported/hexagon.svg-c9259952b09419795aa0d648d69b77cc.ctex"]
 
 [params]
 
