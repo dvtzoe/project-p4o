@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b0mkb7jwiad75" path="res://src/game/stage/units/pieces/piece.tscn" id="1_tyx24"]
 [ext_resource type="Script" uid="uid://c658op2pf1eus" path="res://src/game/stage/units/pieces/pawn.gd" id="2_bdd6p"]
+[ext_resource type="Texture2D" uid="uid://d0ivy5vp30cx5" path="res://assets/stage/units/pieces/pawn.png" id="3_8m2i2"]
 
 [node name="Pawn" unique_id=1204601962 instance=ExtResource("1_tyx24")]
 script = ExtResource("2_bdd6p")
+
+[node name="Sprite2D" parent="." index="0" unique_id=807185017]
+texture = ExtResource("3_8m2i2")
