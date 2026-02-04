@@ -3,9 +3,11 @@ extends Control
 @export var name_label: Label
 @export var content_label: RichTextLabel
 @export var background_texture_rect: TextureRect
+@export var choices_container: VBoxContainer
 
 signal start_stage
 signal ui_accept_pressed
+signal choice_made(index)
 
 var is_streaming: bool = false
 var char_index: int = 0
@@ -13,6 +15,9 @@ var full_text: String = ""
 var buffered_text: String = ""
 var time_since_last_char: float = 0.0
 var char_interval: float = 0.05
+
+func _on_choice_made(index: int) -> void:
+    emit_signal("choice_made", index)
 
 func load_story() -> void:
     print("Loading story for day %d, route %s" % [SaveManager.current_save.day, SaveManager.current_save.route])
@@ -39,6 +44,20 @@ func load_story() -> void:
                         is_streaming = true
                         await ui_accept_pressed
                         is_streaming = false
+                    "choice":
+                        var choice_scene = preload("res://src/game/story/choice.tscn")
+                        for i in range(entry["choices"].size()):
+                            var choice_instance = choice_scene.instantiate()
+                            choice_instance.set("index", i)
+                            choice_instance.connect("choice_made", Callable(self , "_on_choice_made"))
+                            var button = choice_instance.get_node("Button")
+                            button.text = entry["choices"][i]["text"]
+                            choices_container.add_child(choice_instance)
+                        var choice_index = await choice_made
+                        print("Player chose option %d" % choice_index)
+                        for child in choices_container.get_children():
+                            child.queue_free()
+                        
                     "stage":
                         emit_signal("start_stage")
                         queue_free()
