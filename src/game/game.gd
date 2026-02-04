@@ -13,3 +13,10 @@ func start_story() -> void:
 
 func _ready() -> void:
     start_story()
+
+func _input(event: InputEvent) -> void:
+    if event.is_action_pressed("ui_cancel"):
+        var pause_menu_scene = preload("res://src/game/pause_menu/pause_menu.tscn")
+        var pause_menu_instance = pause_menu_scene.instantiate()
+        get_tree().current_scene.add_child(pause_menu_instance)
+        get_tree().paused = true

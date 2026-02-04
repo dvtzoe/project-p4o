@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://51l0uqqa84d3"]
+
+[ext_resource type="Script" uid="uid://cepk6pr012ege" path="res://src/game/pause_menu/pause_menu.gd" id="1_j7ddd"]
+[ext_resource type="Texture2D" uid="uid://dmt376rysku5y" path="res://assets/ui/icons/circle-plus.svg" id="1_ljy3l"]
+
+[node name="PauseMenu" type="Control" unique_id=23215452 node_paths=PackedStringArray("saves_container")]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j7ddd")
+saves_container = NodePath("TabContainer/Saves/VBoxContainer/ScrollContainer/VBoxContainer")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=18240804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1446556606]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Saves" type="MarginContainer" parent="TabContainer" unique_id=1123182152]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Saves" unique_id=1742476378]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Saves/VBoxContainer" unique_id=1586047911]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/Saves/VBoxContainer/HBoxContainer" unique_id=2125200940]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "New Save"
+
+[node name="TextureButton" type="TextureButton" parent="TabContainer/Saves/VBoxContainer/HBoxContainer" unique_id=1871665514]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("1_ljy3l")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Saves/VBoxContainer" unique_id=326313842]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Saves/VBoxContainer/ScrollContainer" unique_id=1616438168]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
