@@ -3,4 +3,4 @@ extends Node2D
 var type: String
 var id: int
 
-var coordinate: Vector2i
+var coord: Vector2i

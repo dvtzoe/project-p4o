@@ -1,7 +1,5 @@
 extends Node
 
-var units_table: Dictionary[int, Node2D] = {}
-var units_id: Array[int] = []
 var unit_at: Dictionary[Vector2i, int] = {}
 
 var current_wave: int = 0
@@ -16,12 +14,17 @@ func spawn_unit(type: String, coordinate: Vector2i) -> void:
     unit_instance.set("id", max_id)
     unit_instance.set("coordinate", coordinate)
 
-    units_table[max_id] = unit_instance
-    units_id.append(max_id)
     unit_at[coordinate] = max_id
 
     max_id += 1
     add_child(unit_instance)
+    unit_instance.connect("move", Callable(self , "_on_unit_move"))
+
+func _on_unit_move(from_coord: Vector2i, to_coord: Vector2i) -> void:
+    if unit_at.has(from_coord):
+        var unit_id = unit_at[from_coord]
+        unit_at.erase(from_coord)
+        unit_at[to_coord] = unit_id
 
 func _ready() -> void:
     var file = FileAccess.open("res://assets/stage/days/%d/default.json" % SaveManager.current_save.day, FileAccess.READ)
