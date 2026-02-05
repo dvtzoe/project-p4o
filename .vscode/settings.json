@@ -3,5 +3,8 @@
   "svg.preview.background": "transparent",
   "workbench.editorAssociations": {
     "*.svg": "default"
+  },
+  "files.exclude": {
+    "**/*.uid": true
   }
 }
