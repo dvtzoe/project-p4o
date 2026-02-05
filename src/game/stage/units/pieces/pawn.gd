@@ -1,11 +1,12 @@
 extends "res://src/game/stage/units/pieces/piece.gd"
 
-func can_move_to(to_coord: Vector2i) -> bool:
-    # check if target is adjacent
+func compute_reachable_tiles() -> void:
+    reachable_tiles.clear()
     var adjacent_hexes = HexUtils.get_adjacent_hex(coord)
-    if to_coord not in adjacent_hexes:
-        return false
-    return true
+    for hex in adjacent_hexes:
+        if hex in StageState.instance.unit_at:
+            continue
+        reachable_tiles[hex] = 1
 
 func _ready() -> void:
     type_name = "Pawn"

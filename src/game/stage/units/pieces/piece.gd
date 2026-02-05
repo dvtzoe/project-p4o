@@ -1,9 +1,10 @@
 extends "res://src/game/stage/units/unit.gd"
 
+var reachable_tiles: Dictionary[Vector2i, int] = {}
 
-func can_move_to(_to_coord: Vector2i) -> bool:
-    push_error("Piece can_move_to() not implemented yet.")
-    return false
+# abstract
+func compute_reachable_tiles() -> void:
+    push_error("compute_reachable_tiles() not implemented yet.")
 
 func _ready() -> void:
     type_name = "Piece"
