@@ -15,11 +15,12 @@ tile_shape = 3
 tile_size = Vector2i(110, 128)
 sources/0 = SubResource("TileSetAtlasSource_6mphb")
 
-[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("highlight", "canvas_layer")]
+[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("highlight", "canvas_layer", "tile_map_layer")]
 process_mode = 1
 script = ExtResource("1_dwwv6")
 highlight = NodePath("Highlight")
 canvas_layer = NodePath("CanvasLayer")
+tile_map_layer = NodePath("TileMapLayer")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=107359172]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wMAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAABAP3/AAAAAAAAAAACAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAA=")

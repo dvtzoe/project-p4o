@@ -2,6 +2,7 @@ extends Node
 
 @export var highlight: Sprite2D
 @export var canvas_layer: CanvasLayer
+@export var tile_map_layer: TileMapLayer
 
 var state: StageState = StageState.new()
 
@@ -26,6 +27,7 @@ func spawn_unit(type: String, coord: Vector2i, team: String) -> void:
     add_child(unit_instance)
 
 func _ready() -> void:
+    state.tile_map_layer = tile_map_layer
     var file = FileAccess.open("res://assets/stage/days/%d/default.json" % SaveManager.current_save.day, FileAccess.READ)
     if file:
         var json_content: String = file.get_as_text()

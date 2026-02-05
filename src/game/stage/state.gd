@@ -9,5 +9,7 @@ var unit_at: Dictionary[Vector2i, Node2D] = {}
 
 var current_wave: int = 0
 
+var tile_map_layer: TileMapLayer
+
 func _init() -> void:
     instance = self
