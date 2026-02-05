@@ -19,8 +19,9 @@ func spawn_unit(type: String, coord: Vector2i, team: String) -> void:
 
     state.unit_at[coord] = unit_instance
 
-    if unit_instance.has_method("compute_reachable_tiles"):
-        unit_instance.call("compute_reachable_tiles")
+    for unit in state.unit_at.values():
+        if unit.has_method("compute_reachable_tiles"):
+            unit.call("compute_reachable_tiles")
     max_id += 1
     add_child(unit_instance)
 
@@ -63,7 +64,7 @@ func _select_tile(cell: Vector2i) -> void:
         unit_status_instance.call("show_info", state.unit_at[cell])
         canvas_layer.add_child(unit_status_instance)
 
-        if state.unit_at[cell].get("reachable_tiles"):
+        if state.unit_at[cell].get("reachable_tiles") and state.unit_at[cell].get("team") == "player":
             var reachable_overlay_scene = preload("res://src/game/stage/reachable_overlay.tscn")
             for reachable_tile in state.unit_at[cell].get("reachable_tiles").keys():
                 var overlay_instance = reachable_overlay_scene.instantiate()
