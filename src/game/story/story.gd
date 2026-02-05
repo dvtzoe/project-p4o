@@ -15,6 +15,7 @@ var full_text: String = ""
 var buffered_text: String = ""
 var time_since_last_char: float = 0.0
 var char_interval: float = 0.05
+var is_skipping: bool = false
 
 func _on_choice_made(index: int) -> void:
     emit_signal("choice_made", index)
@@ -29,6 +30,10 @@ func load_story(story_data: Array) -> void:
                 else:
                     background_texture_rect.texture = bg_texture
             "dialogue":
+                if is_skipping:
+                    name_label.text = entry["character"]
+                    content_label.text = entry["text"]
+                    continue
                 content_label.clear()
                 name_label.text = entry["character"]
                 full_text = entry["text"]
@@ -39,6 +44,7 @@ func load_story(story_data: Array) -> void:
                 await ui_accept_pressed
                 is_streaming = false
             "choice":
+                is_skipping = false
                 var choice_scene = preload("res://src/game/story/choice.tscn")
                 for i in range(entry["choices"].size()):
                     var choice_instance = choice_scene.instantiate()
@@ -66,9 +72,13 @@ func _input(event: InputEvent) -> void:
             is_streaming = false
         else:
             emit_signal("ui_accept_pressed")
+    if event.is_action_pressed("skip"):
+        is_skipping = true
+        emit_signal("ui_accept_pressed")
+
 
 func _process(delta: float) -> void:
-    if is_streaming:
+    if is_streaming and not is_skipping:
         time_since_last_char += delta
         if time_since_last_char > char_interval:
             time_since_last_char = 0.0
