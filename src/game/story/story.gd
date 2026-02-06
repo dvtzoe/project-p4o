@@ -29,12 +29,16 @@ func load_story(story_data: Array) -> void:
     for entry in story_data:
         match entry["type"]:
             "background":
+                if Config.debug_skip_story:
+                    continue
                 var bg_texture = load(entry["file"])
                 if not bg_texture:
                     print("Failed to load background texture: %s" % entry["file"])
                 else:
                     background_texture_rect.texture = bg_texture
             "dialogue":
+                if Config.debug_skip_story:
+                    continue
                 if is_skipping:
                     name_label.text = entry["character"]
                     content_label.text = entry["text"]
@@ -49,6 +53,8 @@ func load_story(story_data: Array) -> void:
                 await ui_accept_pressed
                 is_streaming = false
             "choice":
+                if Config.debug_skip_story:
+                    continue
                 is_skipping = false
                 var choice_scene = preload("res://src/game/story/choice.tscn")
                 for i in range(entry["choices"].size()):
