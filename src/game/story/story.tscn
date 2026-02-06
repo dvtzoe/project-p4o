@@ -12,10 +12,10 @@ grow_vertical = 2
 script = ExtResource("1_dnowo")
 name_label = NodePath("MarginContainer/VBoxContainer/HeaderMarginContainer/PanelContainer/MarginContainer/NameLabel")
 content_label = NodePath("MarginContainer/VBoxContainer/BodyPanelContainer/MarginContainer/ContentRichTextLabel")
-background_texture_rect = NodePath("TextureRect")
+background_texture_rect = NodePath("Background")
 choices_container = NodePath("ChoicesContainer")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1940345519]
+[node name="Background" type="TextureRect" parent="." unique_id=1940345519]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

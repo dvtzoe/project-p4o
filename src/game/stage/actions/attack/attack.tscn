@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ofbyodfh8rmj"]
+
+[ext_resource type="PackedScene" uid="uid://cgp40yfqqx1vq" path="res://src/game/stage/actions/action.tscn" id="1_wvis4"]
+[ext_resource type="Script" uid="uid://cmgvgirqec1kq" path="res://src/game/stage/actions/attack/attack.gd" id="2_ubek5"]
+
+[node name="Attack" unique_id=487635903 instance=ExtResource("1_wvis4")]
+script = ExtResource("2_ubek5")

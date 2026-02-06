@@ -1,33 +1,33 @@
 class_name Movements
 
 static func dijkstra_reachable_tiles(
-    start: Vector2i,
-    movement_points: int,
+    unit: Unit
 ) -> Dictionary[Vector2i, int]:
     var reachable_tiles: Dictionary[Vector2i, int] = {}
-    var frontier: Array[Dictionary] = []
-    frontier.append({"position": start, "cost": 0})
+    var frontier_positions: Array[Vector2i] = [unit.coord]
+    var frontier_costs: Array[int] = [0]
     
-    while frontier.size() > 0:
-        var current = frontier.pop_front()
-        var current_pos: Vector2i = current["position"]
-        var current_cost: int = current["cost"]
+    while frontier_positions.size() > 0:
+        var current_pos: Vector2i = frontier_positions.pop_front()
+        var current_cost: int = frontier_costs.pop_front()
         
         if current_pos in reachable_tiles:
             continue
         
-        if current_pos != start:
+        if current_pos != unit.coord:
             reachable_tiles[current_pos] = current_cost
         
-        if current_cost >= movement_points:
+        if current_cost >= unit.movement_points:
             continue
         
         var neighbors: Array[Vector2i] = HexUtils.get_adjacent_hex(current_pos)
         for neighbor in neighbors:
-            if StageState.instance.unit_at.has(neighbor):
+            if Game.stage.state.unit_at.has(neighbor):
                 continue
-            if StageState.instance.tile_map_layer.get_cell_source_id(neighbor) == -1:
+            if Game.stage.tile_map_layer.get_cell_source_id(neighbor) == -1:
                 continue
-            frontier.append({"position": neighbor, "cost": current_cost + Constants.TILES[StageState.instance.tile_map_layer.get_cell_source_id(neighbor)]["movement_cost"]})
+            
+            frontier_positions.append(neighbor)
+            frontier_costs.append(current_cost + Constants.TILES[Game.stage.tile_map_layer.get_cell_source_id(neighbor)]["movement_cost"])
     
     return reachable_tiles

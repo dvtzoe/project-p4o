@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cl5dvm5abuykc"]
 
-[ext_resource type="Script" uid="uid://cbtiwuc8kkfba" path="res://src/game/stage/unit_status.gd" id="1_6npwy"]
+[ext_resource type="Script" uid="uid://cbtiwuc8kkfba" path="res://src/game/stage/unit_status/unit_status.gd" id="1_6npwy"]
 
-[node name="UnitStatus" type="Control" unique_id=697596825 node_paths=PackedStringArray("name_label")]
+[node name="UnitStatus" type="Control" unique_id=697596825 node_paths=PackedStringArray("name_label", "actions_container")]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_vertical = 0
 script = ExtResource("1_6npwy")
 name_label = NodePath("VBoxContainer/NameLabel")
+actions_container = NodePath("VBoxContainer/ActionsContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1529544505]
 layout_mode = 1
@@ -20,6 +21,9 @@ offset_left = 16.0
 offset_bottom = -16.0
 grow_vertical = 0
 alignment = 2
+
+[node name="ActionsContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=502697900]
+layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=1118296282]
 layout_mode = 2

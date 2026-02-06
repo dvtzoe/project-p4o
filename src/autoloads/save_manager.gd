@@ -2,7 +2,7 @@ extends Node
 
 var current_save: SaveData
 
-func new():
+func new_save():
     current_save = SaveData.new()
 
 func get_saves() -> Array[String]:

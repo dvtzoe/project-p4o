@@ -1,14 +1,17 @@
 extends Control
 
+class_name Story
+
 @export var name_label: Label
 @export var content_label: RichTextLabel
 @export var background_texture_rect: TextureRect
 @export var choices_container: VBoxContainer
 
-signal start_stage
 signal ui_accept_pressed
 signal choice_made(index)
+signal scene_ready
 
+var is_ready: bool = false
 var is_streaming: bool = false
 var char_index: int = 0
 var full_text: String = ""
@@ -21,6 +24,8 @@ func _on_choice_made(index: int) -> void:
     emit_signal("choice_made", index)
 
 func load_story(story_data: Array) -> void:
+    if not is_ready:
+        await scene_ready
     for entry in story_data:
         match entry["type"]:
             "background":
@@ -59,8 +64,7 @@ func load_story(story_data: Array) -> void:
                     child.queue_free()
                 
             "stage":
-                emit_signal("start_stage")
-                queue_free()
+                Game.change_state(Enums.GameState.STAGE)
 
             _:
                 print("Unknown story entry type: %s" % entry["type"])
@@ -88,3 +92,6 @@ func _process(delta: float) -> void:
                 char_index += 1
             else:
                 is_streaming = false
+
+func _ready() -> void:
+    is_ready = true

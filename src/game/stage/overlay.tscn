@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dxv3b1en40ul4"]
+
+[ext_resource type="Texture2D" uid="uid://b47l8x1gxv5cq" path="res://assets/stage/sprites/tiles/circle.svg" id="1_jxtik"]
+[ext_resource type="Script" uid="uid://guaegy86xcxq" path="res://src/game/stage/overlay.gd" id="2_j8yel"]
+
+[node name="Overlay" type="Sprite2D" unique_id=51761915]
+self_modulate = Color(0, 0, 0, 0.24705882)
+texture = ExtResource("1_jxtik")
+script = ExtResource("2_j8yel")

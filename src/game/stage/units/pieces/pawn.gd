@@ -1,8 +1,16 @@
 extends "res://src/game/stage/units/pieces/piece.gd"
 
+@export var max_health: int = 100
+@export var movement_points: int = 3
+
+var reachable_tiles: Dictionary[Vector2i, int] = {}
+
 func compute_reachable_tiles() -> void:
     reachable_tiles.clear()
-    reachable_tiles = Movements.dijkstra_reachable_tiles(coord, 3)
+    reachable_tiles = Movements.dijkstra_reachable_tiles(self )
+
 
 func _ready() -> void:
     type_name = "Pawn"
+    health = max_health
+    compute_reachable_tiles()

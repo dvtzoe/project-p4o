@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cyo3q16nm6ff6"]
+
+[ext_resource type="Script" uid="uid://64q14aaptvk0" path="res://src/game/stage/unit_status/action_card.gd" id="1_8g0r7"]
+
+[node name="ActionCard" type="PanelContainer" unique_id=533273343 node_paths=PackedStringArray("action_name_label")]
+script = ExtResource("1_8g0r7")
+action_name_label = NodePath("MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1155333694]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1025933132]
+layout_mode = 2
+text = "Action ?"
