@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cbtiwuc8kkfba" path="res://src/game/stage/unit_status/unit_status.gd" id="1_6npwy"]
 
-[node name="UnitStatus" type="Control" unique_id=697596825 node_paths=PackedStringArray("name_label", "actions_container")]
+[node name="UnitStatus" type="Control" unique_id=697596825 node_paths=PackedStringArray("name_label", "team_label", "actions_container")]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 script = ExtResource("1_6npwy")
-name_label = NodePath("VBoxContainer/NameLabel")
+name_label = NodePath("VBoxContainer/HBoxContainer/NameLabel")
+team_label = NodePath("VBoxContainer/HBoxContainer/TeamLabel")
 actions_container = NodePath("VBoxContainer/ActionsContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1529544505]
@@ -25,7 +26,15 @@ alignment = 2
 [node name="ActionsContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=502697900]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=1118296282]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=220017293]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1118296282]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Unit ?"
+
+[node name="TeamLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=429732853]
+layout_mode = 2
+size_flags_vertical = 8
+text = "(team)"
