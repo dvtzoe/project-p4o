@@ -1,5 +1,7 @@
 extends AttackAction
 
+class_name Katana
+
 @export var attack_power: int = 50
 
 var action_name := "Katana Slash"

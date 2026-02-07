@@ -5,6 +5,7 @@
 
 [node name="Base" unique_id=1204601962 instance=ExtResource("1_f5nao")]
 unit_name = "Base"
+unit_type = 1
 
 [node name="Sprite2D" parent="." index="0" unique_id=807185017]
 texture = ExtResource("2_gd3o1")

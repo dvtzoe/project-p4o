@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://crp8wgbjy73b7"]
+
+[ext_resource type="Script" uid="uid://chqixrt7o478s" path="res://src/game/stage/units/components/movement.gd" id="1_eat4r"]
+
+[node name="Movement" type="Node" unique_id=357081557]
+script = ExtResource("1_eat4r")

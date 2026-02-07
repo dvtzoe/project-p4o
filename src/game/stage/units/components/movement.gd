@@ -1,9 +1,14 @@
-class_name Movements
+extends Node
 
-static func dijkstra_reachable_tiles(
-    unit: Unit
-) -> Dictionary[Vector2i, int]:
-    var reachable_tiles: Dictionary[Vector2i, int] = {}
+class_name Movement
+
+@export var movement_points: int
+
+@onready var unit: Unit = get_parent()
+
+var reachable_tiles: Dictionary[Vector2i, int] = {}
+
+func compute_reachable_tiles() -> void:
     var frontier_positions: Array[Vector2i] = [unit.coord]
     var frontier_costs: Array[int] = [0]
     
@@ -17,7 +22,7 @@ static func dijkstra_reachable_tiles(
         if current_pos != unit.coord:
             reachable_tiles[current_pos] = current_cost
         
-        if current_cost >= unit.movement_points:
+        if current_cost >= movement_points:
             continue
         
         var neighbors: Array[Vector2i] = HexUtils.get_adjacent_hex(current_pos)
@@ -29,5 +34,3 @@ static func dijkstra_reachable_tiles(
             
             frontier_positions.append(neighbor)
             frontier_costs.append(current_cost + Constants.TILES[Game.stage.tile_map_layer.get_cell_source_id(neighbor)]["movement_cost"])
-    
-    return reachable_tiles

@@ -12,7 +12,7 @@ var max_id: int = 0
 
 func spawn_unit(type: String, coord: Vector2i, team: String) -> void:
     var unit_scene: PackedScene = load(Constants.UNITS_TABLE[type])
-    var unit_instance: Node2D = unit_scene.instantiate()
+    var unit_instance: Unit = unit_scene.instantiate()
     unit_instance.position = HexUtils.tile_to_px(coord)
     
     unit_instance.set("type", type)
@@ -21,10 +21,10 @@ func spawn_unit(type: String, coord: Vector2i, team: String) -> void:
     unit_instance.set("team", team)
 
     state.unit_at[coord] = unit_instance
-
-    for unit in state.unit_at.values():
-        if unit.has_method("compute_reachable_tiles"):
-            unit.call("compute_reachable_tiles")
+    
+    for unit: Unit in state.unit_at.values():
+        if unit.movement:
+            unit.movement.compute_reachable_tiles()
     max_id += 1
     add_child(unit_instance)
 
@@ -59,20 +59,20 @@ func _ready() -> void:
 
 
 func _select_tile(cell: Vector2i) -> void:
-    Game.stage.state.selected_tile = cell
-    if Game.stage.state.unit_at.has(cell):
+    state.selected_tile = cell
+    if state.unit_at.has(cell):
         var unit_status_scene = preload("res://src/game/stage/unit_status/unit_status.tscn")
         var unit_status_instance = unit_status_scene.instantiate()
-        unit_status_instance.call("show_info", Game.stage.state.unit_at[cell])
+        unit_status_instance.call("show_info", state.unit_at[cell])
         canvas_layer.add_child(unit_status_instance)
 
-        if Game.stage.state.unit_at[cell].get("team") == "player":
-            if Game.stage.state.unit_at[cell].get("reachable_tiles"):
-                for reachable_tile in Game.stage.state.unit_at[cell].get("reachable_tiles").keys():
+        if state.unit_at[cell].team == "player":
+            if state.unit_at[cell].movement:
+                for reachable_tile in state.unit_at[cell].movement.reachable_tiles.keys():
                     Overlay.add(reachable_tile, Enums.OverlayState.MOVE_REACHABLE)
-            if Game.stage.state.selected_action:
-                if Game.stage.state.unit_at[cell].action_reachable_tiles.has(Game.stage.state.selected_action.name):
-                    for action_reachable_tiles in Game.stage.state.unit_at[cell].action_reachable_tiles[Game.stage.state.selected_action.name]:
+            if state.selected_action:
+                if state.unit_at[cell].action_reachable_tiles.has(state.selected_action.name):
+                    for action_reachable_tiles in state.unit_at[cell].action_reachable_tiles[state.selected_action.name]:
                         Overlay.add(action_reachable_tiles, Enums.OverlayState.ACTION_REACHABLE)
 
                 # if state.unit_at[cell].actionable_units.has(state.selected_action.name):
@@ -82,7 +82,7 @@ func _select_tile(cell: Vector2i) -> void:
 
         highlight.position = HexUtils.tile_to_px(cell)
         highlight.visible = true
-        if Game.stage.state.unit_at[cell].get("team") == "player":
+        if state.unit_at[cell].team == "player":
             highlight.self_modulate = Color(0, 0.5, 1, 0.5)
         else:
             highlight.self_modulate = Color(1, 0, 0, 0.5)
@@ -93,36 +93,36 @@ func _deselect_tile() -> void:
 
     Overlay.remove_all()
 
-    Game.stage.state.is_selecting_tile = false
+    state.is_selecting_tile = false
     highlight.visible = false
 
 func _deselect_action() -> void:
-    if not Game.stage.state.selected_action:
+    if not state.selected_action:
         return
-    for cell in Game.stage.state.unit_at[Game.stage.state.selected_tile].action_reachable_tiles[Game.stage.state.selected_action.name]:
+    for cell in state.unit_at[state.selected_tile].action_reachable_tiles[state.selected_action.name]:
         Overlay.remove(cell, Enums.OverlayState.ACTION_REACHABLE)
-    Game.stage.state.selected_action = null
+    state.selected_action = null
 
 func _move_unit_to(unit: Unit, cell: Vector2i) -> void:
     unit.position = HexUtils.tile_to_px(cell)
     unit.set("coord", cell)
-    Game.stage.state.unit_at[cell] = Game.stage.state.unit_at[Game.stage.state.selected_tile]
-    Game.stage.state.unit_at.erase(Game.stage.state.selected_tile)
+    state.unit_at[cell] = state.unit_at[state.selected_tile]
+    state.unit_at.erase(state.selected_tile)
     unit.call("compute_reachable_tiles")
 
 func _on_tile_map_layer_tile_clicked(cell: Vector2i) -> void:
-    if Game.stage.state.selected_tile and Game.stage.state.unit_at.has(Game.stage.state.selected_tile):
-        var unit = Game.stage.state.unit_at[Game.stage.state.selected_tile]
-        if not unit.get("team") == "player":
+    if state.selected_tile and state.unit_at.has(state.selected_tile):
+        var unit = state.unit_at[state.selected_tile]
+        if not unit.team == "player":
             _deselect_tile()
             return
 
-        if unit.get("reachable_tiles") and unit.get("reachable_tiles").has(cell):
+        if unit.movement and unit.movement.reachable_tiles.has(cell):
             _move_unit_to(unit, cell)
             _deselect_tile()
             return
-        if Game.stage.state.selected_action and Game.stage.state.unit_at[Game.stage.state.selected_tile].actionable_tiles[Game.stage.state.selected_action.name].has(cell):
-            var action_node = Game.stage.state.selected_action
+        if state.selected_action and state.unit_at[state.selected_tile].actionable_tiles[state.selected_action.name].has(cell):
+            var action_node = state.selected_action
             action_node.perform(cell)
         _deselect_tile()
         _deselect_action()
@@ -130,5 +130,5 @@ func _on_tile_map_layer_tile_clicked(cell: Vector2i) -> void:
     _select_tile(cell)
 
 func _input(event: InputEvent) -> void:
-    if Game.stage.state.is_selecting_tile and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+    if state.is_selecting_tile and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
         _deselect_tile()

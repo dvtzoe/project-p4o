@@ -12,10 +12,6 @@ enum Element {
     SHARP,
 }
 
-enum UnitType {
-    PIECE,
-    STRUCTURE,
-}
 
 enum OverlayState {
     MOVE_REACHABLE,
