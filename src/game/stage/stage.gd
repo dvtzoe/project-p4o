@@ -9,7 +9,7 @@ class_name Stage
 
 var state: StageState = StageState.new()
 
-func _recompute_all_units_tiles() -> void:
+func recompute_units_tiles() -> void:
     for unit: Unit in state.unit_at.values():
         if unit.movement:
             unit.movement.compute_reachable_tiles()
@@ -27,7 +27,7 @@ func spawn_unit(type: String, coord: Vector2i, team: String) -> void:
 
     state.unit_at[coord] = unit_instance
     
-    _recompute_all_units_tiles()
+    recompute_units_tiles()
     units_layer.add_child(unit_instance)
 
 func _ready() -> void:

@@ -13,7 +13,7 @@ func compute_actionable_tiles() -> void:
     for neighbor in neighbors:
         if Game.stage.state.unit_at.has(neighbor):
             var target_unit: Unit = Game.stage.state.unit_at[neighbor]
-            if target_unit.team != unit.team:
+            if target_unit.team != unit.team and target_unit.health:
                 actionable_tiles.append(neighbor)
         else:
             action_reachable_tiles.append(neighbor)
@@ -24,4 +24,5 @@ func perform(target: Vector2i) -> void:
     var target_unit: Unit = Game.stage.state.unit_at[target]
     if target_unit.team == unit.team:
         return
-    print("%s attacks %s with Katana Slash for %d damage!" % [unit.unit_name, target_unit.unit_name, attack_power])
+    
+    target_unit.health.hurt(attack_power)

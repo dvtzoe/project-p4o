@@ -18,3 +18,7 @@ func _ready() -> void:
         health = get_node("Health") as Health
     for action: Action in get_node("Actions").get_children():
         actions.append(action)
+
+func die() -> void:
+    Game.stage.state.unit_at.erase(coord)
+    queue_free()
