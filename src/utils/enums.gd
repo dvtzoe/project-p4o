@@ -16,6 +16,8 @@ enum Element {
 enum OverlayState {
     MOVE_REACHABLE,
     ACTION_REACHABLE,
+    PLAYER_UNIT,
+    ENEMY_UNIT,
 }
 
 enum GameState {

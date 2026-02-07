@@ -2,8 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://b47l8x1gxv5cq" path="res://assets/stage/sprites/tiles/circle.svg" id="1_jxtik"]
 [ext_resource type="Script" uid="uid://guaegy86xcxq" path="res://src/game/stage/overlay.gd" id="2_j8yel"]
+[ext_resource type="Texture2D" uid="uid://dlniqc04j2lrq" path="res://assets/stage/sprites/tiles/hexagon.svg" id="2_s8n0r"]
 
 [node name="Overlay" type="Sprite2D" unique_id=51761915]
 self_modulate = Color(0, 0, 0, 0.24705882)
-texture = ExtResource("1_jxtik")
 script = ExtResource("2_j8yel")
+highlight_texture = ExtResource("2_s8n0r")
+dot_texture = ExtResource("1_jxtik")

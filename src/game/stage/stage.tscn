@@ -15,10 +15,11 @@ tile_shape = 3
 tile_size = Vector2i(110, 128)
 sources/0 = SubResource("TileSetAtlasSource_6mphb")
 
-[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("highlight", "canvas_layer", "tile_map_layer")]
+[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("overlays_layer", "units_layer", "canvas_layer", "tile_map_layer")]
 process_mode = 1
 script = ExtResource("1_dwwv6")
-highlight = NodePath("Highlight")
+overlays_layer = NodePath("OverlaysLayer")
+units_layer = NodePath("UnitsLayer")
 canvas_layer = NodePath("CanvasLayer")
 tile_map_layer = NodePath("TileMapLayer")
 
@@ -31,14 +32,12 @@ script = ExtResource("3_8en0l")
 script = ExtResource("3_k8r72")
 move_speed = 256.0
 
-[node name="Highlight" type="Sprite2D" parent="." unique_id=1827457505]
-visible = false
-texture = ExtResource("1_e4yij")
-
-[node name="Shadow" type="Sprite2D" parent="." unique_id=846537825]
-visible = false
-texture = ExtResource("1_e4yij")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1515538986]
+
+[node name="OverlaysLayer" type="Node2D" parent="." unique_id=1474758098]
+z_index = 1
+
+[node name="UnitsLayer" type="Node2D" parent="." unique_id=81086198]
+z_index = 2
 
 [connection signal="tile_clicked" from="TileMapLayer" to="." method="_on_tile_map_layer_tile_clicked"]

@@ -2,7 +2,8 @@ extends Node
 
 class_name Stage
 
-@export var highlight: Sprite2D
+@export var overlays_layer: Node2D
+@export var units_layer: Node2D
 @export var canvas_layer: CanvasLayer
 @export var tile_map_layer: TileMapLayer
 
@@ -27,7 +28,7 @@ func spawn_unit(type: String, coord: Vector2i, team: String) -> void:
     state.unit_at[coord] = unit_instance
     
     _recompute_all_units_tiles()
-    add_child(unit_instance)
+    units_layer.add_child(unit_instance)
 
 func _ready() -> void:
     var file = FileAccess.open("res://assets/stage/days/%d/default.json" % SaveManager.current_save.day, FileAccess.READ)
@@ -80,12 +81,10 @@ func _select_tile(tile: Vector2i) -> void:
                 #         # TODO: add highlight
                 #         pass
 
-        highlight.position = HexUtils.tile_to_px(tile)
-        highlight.visible = true
         if state.unit_at[tile].team == "player":
-            highlight.self_modulate = Color(0, 0.5, 1, 0.5)
+            Overlay.add(tile, Enums.OverlayState.PLAYER_UNIT)
         else:
-            highlight.self_modulate = Color(1, 0, 0, 0.5)
+            Overlay.add(tile, Enums.OverlayState.ENEMY_UNIT)
 
 func _deselect_tile() -> void:
     if canvas_layer.has_node("UnitStatus"):
@@ -94,7 +93,6 @@ func _deselect_tile() -> void:
     Overlay.remove_all()
 
     state.is_selecting_tile = false
-    highlight.visible = false
 
 func _deselect_action() -> void:
     if not state.selected_action:
