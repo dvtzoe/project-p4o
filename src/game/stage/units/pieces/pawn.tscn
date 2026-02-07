@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://chqixrt7o478s" path="res://src/game/stage/units/components/movement.gd" id="5_eavbk"]
 
 [node name="Pawn" unique_id=1204601962 instance=ExtResource("1_tyx24")]
+unit_name = "Pawn"
 
 [node name="Sprite2D" parent="." index="0" unique_id=807185017]
 texture = ExtResource("3_8m2i2")

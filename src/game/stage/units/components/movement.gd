@@ -6,9 +6,10 @@ class_name Movement
 
 @onready var unit: Unit = get_parent()
 
-var reachable_tiles: Dictionary[Vector2i, int] = {}
+var reachable_tiles: Array[Vector2i] = []
 
 func compute_reachable_tiles() -> void:
+    reachable_tiles.clear()
     var frontier_positions: Array[Vector2i] = [unit.coord]
     var frontier_costs: Array[int] = [0]
     
@@ -20,7 +21,7 @@ func compute_reachable_tiles() -> void:
             continue
         
         if current_pos != unit.coord:
-            reachable_tiles[current_pos] = current_cost
+            reachable_tiles.append(current_pos)
         
         if current_cost >= movement_points:
             continue
