@@ -8,7 +8,8 @@ var action: Action
 
 func _gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-        print("ActionCard clicked: %s" % action.action_name)
+        if action.unit.team != "player":
+            return
         if Game.stage.state.selected_action == action:
             Game.stage.state.selected_action = null
             for tile in action.action_reachable_tiles:
