@@ -1,5 +1,7 @@
 extends Control
 
+class_name PauseMenu
+
 @export var saves_container: VBoxContainer
 @export var save_name_line_edit: LineEdit
 

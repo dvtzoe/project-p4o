@@ -1,5 +1,7 @@
 extends PanelContainer
 
+class_name ActionCard
+
 @export var action_name_label: Label
 
 var action: Action

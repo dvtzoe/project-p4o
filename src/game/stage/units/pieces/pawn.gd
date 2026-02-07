@@ -1,4 +1,6 @@
-extends "res://src/game/stage/units/pieces/piece.gd"
+extends Piece
+
+class_name Pawn
 
 @export var max_health: int = 100
 @export var movement_points: int = 3

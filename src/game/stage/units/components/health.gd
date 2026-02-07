@@ -1,5 +1,7 @@
 extends Node
 
+class_name Health
+
 @export var max_health: int
 var current_health: int
 

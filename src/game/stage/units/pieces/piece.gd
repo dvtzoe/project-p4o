@@ -1,4 +1,6 @@
-extends "res://src/game/stage/units/unit.gd"
+extends Unit
+
+class_name Piece
 
 func _ready() -> void:
     type_name = "Piece"

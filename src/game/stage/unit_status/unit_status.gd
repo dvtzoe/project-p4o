@@ -1,5 +1,7 @@
 extends Control
 
+class_name UnitStatus
+
 @export var name_label: Label
 @export var actions_container: HBoxContainer
 
