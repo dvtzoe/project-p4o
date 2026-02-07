@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dno026yd0g0uh"]
-
-[ext_resource type="PackedScene" uid="uid://bey0ncc3hs8cx" path="res://src/game/stage/actions/attack/melee/melee.tscn" id="1_thrag"]
-
-[node name="Sharp" unique_id=487635903 instance=ExtResource("1_thrag")]
