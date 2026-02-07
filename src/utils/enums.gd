@@ -22,6 +22,7 @@ enum OverlayState {
 }
 
 enum GameState {
+    LOBBY,
     MAIN_MENU,
     STORY,
     STAGE,

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dtkeodj4giab4"]
+
+[ext_resource type="Script" uid="uid://cgodaowfdq3n8" path="res://src/game/lobby/lobby.gd" id="1_lcfac"]
+
+[node name="Lobby" type="Node" unique_id=1722920465]
+script = ExtResource("1_lcfac")
+
+[node name="Control" type="Control" parent="." unique_id=1520619785]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1091749640]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="PlayButton" type="Button" parent="Control/MarginContainer" unique_id=399483322]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
+[connection signal="pressed" from="Control/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]

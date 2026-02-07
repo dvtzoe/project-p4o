@@ -6,3 +6,5 @@
 [node name="Katana" unique_id=487635903 instance=ExtResource("1_h0pwb")]
 script = ExtResource("2_n1806")
 attack_power = 50
+attack_type = 0
+element = 0
