@@ -75,11 +75,8 @@ func _select_tile(tile: Vector2i) -> void:
             if state.selected_action:
                 for action_reachable_tile in state.selected_action.action_reachable_tiles:
                     Overlay.add(action_reachable_tile, Enums.OverlayState.ACTION_REACHABLE)
-
-                # if state.unit_at[cell].actionable_units.has(state.selected_action.name):
-                #     for actionable_unit in state.unit_at[cell].actionable_units[state.selected_action.name]:
-                #         # TODO: add highlight
-                #         pass
+                for actionable_tile in state.selected_action.actionable_tiles:
+                    Overlay.add(actionable_tile, Enums.OverlayState.ATTACKABLE)
 
         if state.unit_at[tile].team == "player":
             Overlay.add(tile, Enums.OverlayState.PLAYER_UNIT)

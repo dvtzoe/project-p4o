@@ -13,10 +13,14 @@ func _gui_input(event: InputEvent) -> void:
             Game.stage.state.selected_action = null
             for tile in action.action_reachable_tiles:
                 Overlay.remove(tile, Enums.OverlayState.ACTION_REACHABLE)
+            for tile in action.actionable_tiles:
+                Overlay.remove(tile, Enums.OverlayState.ATTACKABLE)
         else:
             Game.stage.state.selected_action = action
             for tile in action.action_reachable_tiles:
                 Overlay.add(tile, Enums.OverlayState.ACTION_REACHABLE)
+            for tile in action.actionable_tiles:
+                Overlay.add(tile, Enums.OverlayState.ATTACKABLE)
         
 
 func setup(action_node: Action) -> void:

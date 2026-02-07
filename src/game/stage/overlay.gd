@@ -11,6 +11,7 @@ enum OverlayShape {
 const COLORS = {
     Enums.OverlayState.MOVE_REACHABLE: Color(0, 0, 0, 0.25),
     Enums.OverlayState.ACTION_REACHABLE: Color(1, 0, 0, 0.25),
+    Enums.OverlayState.ATTACKABLE: Color(1, 0, 0, 0.5),
     Enums.OverlayState.PLAYER_UNIT: Color(0, 0.5, 1, 0.5),
     Enums.OverlayState.ENEMY_UNIT: Color(1, 0, 0, 0.5),
 }
@@ -18,6 +19,7 @@ const COLORS = {
 const SHAPES = {
     Enums.OverlayState.MOVE_REACHABLE: OverlayShape.DOT,
     Enums.OverlayState.ACTION_REACHABLE: OverlayShape.DOT,
+    Enums.OverlayState.ATTACKABLE: OverlayShape.HIGHLIGHT,
     Enums.OverlayState.PLAYER_UNIT: OverlayShape.HIGHLIGHT,
     Enums.OverlayState.ENEMY_UNIT: OverlayShape.HIGHLIGHT,
 }
