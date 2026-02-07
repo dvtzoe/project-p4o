@@ -8,6 +8,14 @@ class_name Stage
 
 var state: StageState = StageState.new()
 
+func _recompute_all_units_tiles() -> void:
+    for unit: Unit in state.unit_at.values():
+        if unit.movement:
+            unit.movement.compute_reachable_tiles()
+        if unit.actions:
+            for action in unit.actions:
+                action.compute_actionable_tiles()
+
 func spawn_unit(type: String, coord: Vector2i, team: String) -> void:
     var unit_scene: PackedScene = load(Constants.UNITS_TABLE[type])
     var unit_instance: Unit = unit_scene.instantiate()
@@ -18,12 +26,7 @@ func spawn_unit(type: String, coord: Vector2i, team: String) -> void:
 
     state.unit_at[coord] = unit_instance
     
-    for unit: Unit in state.unit_at.values():
-        if unit.movement:
-            unit.movement.compute_reachable_tiles()
-        if unit.actions:
-            for action in unit.actions:
-                action.compute_actionable_tiles()
+    _recompute_all_units_tiles()
     add_child(unit_instance)
 
 func _ready() -> void:
