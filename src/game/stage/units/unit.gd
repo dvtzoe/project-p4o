@@ -4,14 +4,17 @@ class_name Unit
 
 @export var unit_name: String
 
-@onready var movement: Movement = get_node("Movement")
-@onready var health: Health = get_node("Health")
-@onready var actions: Array[Action] = []
-
+var actions: Array[Action] = []
+var health: Health
+var movement: Movement
 
 var team: String
 var coord: Vector2i
 
 func _ready() -> void:
+    if has_node("Movement"):
+        movement = get_node("Movement") as Movement
+    if has_node("Health"):
+        health = get_node("Health") as Health
     for action: Action in get_node("Actions").get_children():
         actions.append(action)
