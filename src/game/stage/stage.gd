@@ -61,6 +61,7 @@ func _ready() -> void:
 
 
 func _select_tile(tile: Vector2i) -> void:
+    state.is_selecting_tile = true
     state.selected_tile = tile
     if state.unit_at.has(tile):
         var unit_status_scene = preload("res://src/game/stage/unit_status/unit_status.tscn")
@@ -90,6 +91,7 @@ func _deselect_tile() -> void:
     Overlay.remove_all()
 
     state.is_selecting_tile = false
+    _deselect_action()
 
 func _deselect_action() -> void:
     if not state.selected_action:
@@ -109,7 +111,7 @@ func _move_unit_to(unit: Unit, target_tile: Vector2i) -> void:
             action.compute_actionable_tiles()
 
 func _on_tile_map_layer_tile_clicked(cell: Vector2i) -> void:
-    if state.selected_tile and state.unit_at.has(state.selected_tile):
+    if state.is_selecting_tile and state.unit_at.has(state.selected_tile):
         var unit = state.unit_at[state.selected_tile]
         if not unit.team == "player":
             _deselect_tile()
@@ -123,7 +125,6 @@ func _on_tile_map_layer_tile_clicked(cell: Vector2i) -> void:
             var action_node = state.selected_action
             action_node.perform(cell)
         _deselect_tile()
-        _deselect_action()
         return
     _select_tile(cell)
 
