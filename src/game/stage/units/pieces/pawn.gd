@@ -13,6 +13,5 @@ func compute_reachable_tiles() -> void:
 
 
 func _ready() -> void:
-    type_name = "Pawn"
     health = max_health
     compute_reachable_tiles()

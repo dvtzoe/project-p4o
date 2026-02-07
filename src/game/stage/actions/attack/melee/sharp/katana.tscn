@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://bmh8xf44ejw43"]
-
-[ext_resource type="PackedScene" uid="uid://o7ueexte15wf" path="res://src/game/stage/actions/attack/melee/sharp/sharp.tscn" id="1_lu70s"]
-[ext_resource type="Script" uid="uid://d2oqmlsajusgu" path="res://src/game/stage/actions/attack/melee/sharp/katana.gd" id="2_n1806"]
-
-[node name="Katana" unique_id=487635903 instance=ExtResource("1_lu70s")]
-script = ExtResource("2_n1806")

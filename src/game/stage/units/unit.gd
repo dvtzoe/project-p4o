@@ -2,8 +2,9 @@ extends Node2D
 
 class_name Unit
 
-var type_name := "Unit"
-var type: String
+@export var unit_name: String
+@export var unit_type: Enums.UnitType
+
 var id: int
 var team: String
 var coord: Vector2i

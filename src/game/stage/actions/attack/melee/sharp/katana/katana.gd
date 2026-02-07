@@ -1,4 +1,4 @@
-extends SharpMeleeAttackAction
+extends AttackAction
 
 @export var attack_power: int = 50
 

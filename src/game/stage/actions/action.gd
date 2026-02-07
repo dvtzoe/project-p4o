@@ -2,10 +2,9 @@ extends Node
 
 class_name Action
 
-@onready var unit: Unit = get_parent().get_parent()
+@export var action_type: Enums.ActionType
 
-# abstract
-var action_type: String
+@onready var unit: Unit = get_parent().get_parent()
 
 # abstract
 func perform(_target: Vector2i) -> void:

@@ -1,11 +1,20 @@
 class_name Enums
 
 enum ActionType {
-    MELEE,
+    ATTACK,
 }
 
 enum AttackType {
+    MELEE,
+}
+
+enum Element {
     SHARP,
+}
+
+enum UnitType {
+    PIECE,
+    STRUCTURE,
 }
 
 enum OverlayState {

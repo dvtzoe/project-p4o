@@ -1,8 +1,17 @@
-[gd_scene format=3 uid="uid://kxkw2ynkpskx"]
+[gd_scene format=3 uid="uid://bey0ncc3hs8cx"]
 
 [ext_resource type="PackedScene" uid="uid://ofbyodfh8rmj" path="res://src/game/stage/actions/attack/attack.tscn" id="1_ygywl"]
-[ext_resource type="Script" uid="uid://woxuhgobl4sd" path="res://src/game/stage/actions/attack/melee/melee.gd" id="2_4p1gh"]
+
+[sub_resource type="GDScript" id="GDScript_olc12"]
+script/source = "extends AttackAction
+
+class_name MeleeAttackAction
+
+func _ready() -> void:
+    attack_type = Enums.AttackType.MELEE
+"
 
 [node name="Melee" unique_id=487635903 instance=ExtResource("1_ygywl")]
-script = ExtResource("2_4p1gh")
-attack_power = 50
+script = SubResource("GDScript_olc12")
+attack_type = 0
+element = 0

@@ -2,8 +2,8 @@ extends Action
 
 class_name AttackAction
 
-var attack_type: String
-var element: String
+@export var attack_type: Enums.AttackType
+@export var element: Enums.Element
 
 func _ready() -> void:
-    action_type = "attack"
+    action_type = Enums.ActionType.ATTACK

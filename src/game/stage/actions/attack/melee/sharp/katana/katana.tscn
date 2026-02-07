@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://5hhrew4mhk0t"]
+
+[ext_resource type="PackedScene" uid="uid://ofbyodfh8rmj" path="res://src/game/stage/actions/attack/attack.tscn" id="1_h0pwb"]
+[ext_resource type="Script" uid="uid://d2oqmlsajusgu" path="res://src/game/stage/actions/attack/melee/sharp/katana/katana.gd" id="2_n1806"]
+
+[node name="Katana" unique_id=487635903 instance=ExtResource("1_h0pwb")]
+script = ExtResource("2_n1806")
+attack_power = 50

@@ -3,17 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://b0mkb7jwiad75" path="res://src/game/stage/units/pieces/piece.tscn" id="1_tyx24"]
 [ext_resource type="Script" uid="uid://c658op2pf1eus" path="res://src/game/stage/units/pieces/pawn.gd" id="2_bdd6p"]
 [ext_resource type="Texture2D" uid="uid://d0ivy5vp30cx5" path="res://assets/stage/sprites/units/pieces/pawn.png" id="3_8m2i2"]
-[ext_resource type="PackedScene" uid="uid://bmh8xf44ejw43" path="res://src/game/stage/actions/attack/melee/sharp/katana.tscn" id="4_0ki30"]
 [ext_resource type="PackedScene" uid="uid://bssblt23wurub" path="res://src/game/stage/units/components/health.tscn" id="5_eavbk"]
 
 [node name="Pawn" unique_id=1204601962 instance=ExtResource("1_tyx24")]
 script = ExtResource("2_bdd6p")
 max_health = 100
 movement_points = 3
+unit_name = "Pawn"
 
 [node name="Sprite2D" parent="." index="0" unique_id=807185017]
 texture = ExtResource("3_8m2i2")
-
-[node name="Katana" parent="Actions" parent_id_path=PackedInt32Array(1025332400) index="0" unique_id=487635903 instance=ExtResource("4_0ki30")]
 
 [node name="Health" parent="." index="2" unique_id=1209670448 instance=ExtResource("5_eavbk")]
