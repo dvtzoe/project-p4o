@@ -11,17 +11,17 @@ func compute_actionable_tiles() -> void:
     action_reachable_tiles.clear()
     var neighbors: Array[Vector2i] = HexUtils.get_adjacent_hex(unit.coord)
     for neighbor in neighbors:
-        if Game.stage.state.unit_at.has(neighbor):
-            var target_unit: Unit = Game.stage.state.unit_at[neighbor]
+        if Game.stage.unit.at.has(neighbor):
+            var target_unit: Unit = Game.stage.unit.at[neighbor]
             if target_unit.team != unit.team and target_unit.health:
                 actionable_tiles.append(neighbor)
         else:
             action_reachable_tiles.append(neighbor)
 
 func perform(target: Vector2i) -> void:
-    if not Game.stage.state.unit_at.has(target):
+    if not Game.stage.unit.at.has(target):
         return
-    var target_unit: Unit = Game.stage.state.unit_at[target]
+    var target_unit: Unit = Game.stage.unit.at[target]
     if target_unit.team == unit.team:
         return
     

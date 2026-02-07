@@ -12,7 +12,7 @@ func hurt(amount: int) -> void:
     current_health = current_health - amount
     if current_health <= 0:
         unit.die()
-        Game.stage.recompute_units_tiles()
+        Game.stage.unit.recompute_tiles()
 
 func _ready() -> void:
     current_health = max_health

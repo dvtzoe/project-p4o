@@ -28,7 +28,7 @@ func compute_reachable_tiles() -> void:
         
         var neighbors: Array[Vector2i] = HexUtils.get_adjacent_hex(current_pos)
         for neighbor in neighbors:
-            if Game.stage.state.unit_at.has(neighbor):
+            if Game.stage.unit.at.has(neighbor):
                 continue
             if Game.stage.tile_map_layer.get_cell_source_id(neighbor) == -1:
                 continue

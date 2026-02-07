@@ -20,5 +20,5 @@ func _ready() -> void:
         actions.append(action)
 
 func die() -> void:
-    Game.stage.state.unit_at.erase(coord)
+    Game.stage.unit.at.erase(coord)
     queue_free()
