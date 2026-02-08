@@ -7,11 +7,7 @@ class_name MainMenu
 
 func _on_new_button_pressed() -> void:
     SaveManager.new_save()
-    Game.change_state(Enums.GameState.LOBBY)
-    # var story_file = FileAccess.open("res://assets/story/days/0/default.json", FileAccess.READ)
-    # var story_data = JSON.parse_string(story_file.get_as_text())
-    # Game.story.load_story(story_data)
-    # story_file.close()
+    Game.change_state(Game.State.PLACE)
 
 
 func _on_load_button_pressed() -> void:

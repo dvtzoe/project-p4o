@@ -20,10 +20,3 @@ enum OverlayState {
     PLAYER_UNIT,
     ENEMY_UNIT,
 }
-
-enum GameState {
-    LOBBY,
-    MAIN_MENU,
-    STORY,
-    STAGE,
-}

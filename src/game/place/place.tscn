@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ca1b3eq73qktg"]
+
+[ext_resource type="Script" uid="uid://fia4fvtl1kv" path="res://src/game/place/place.gd" id="1_n7vgy"]
+
+[node name="Place" type="Control" unique_id=383223676]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n7vgy")
+
+[node name="Background" type="TextureRect" parent="." unique_id=951191000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

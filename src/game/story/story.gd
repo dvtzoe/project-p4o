@@ -69,7 +69,7 @@ func load_story(story_data: Array[StoryEntry]) -> void:
                 child.queue_free()
             
         elif entry is StageStoryEntry:
-            Game.change_state(Enums.GameState.STAGE)
+            Game.change_state(Game.State.STAGE)
             Game.stage.start(entry.map)
 
         else:
