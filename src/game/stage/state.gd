@@ -16,7 +16,8 @@ func select_tile(tile: Vector2i) -> void:
         unit_status_instance.call("show_info", Game.stage.unit.at[tile])
         Game.stage.canvas_layer.add_child(unit_status_instance)
 
-        if Game.stage.unit.at[tile].team == "player":
+        if Game.stage.unit.at[tile].team == Unit.Team.PLAYER:
+            Overlay.add(tile, Enums.OverlayState.PLAYER_UNIT)
             if Game.stage.unit.at[tile].movement:
                 for reachable_tile in Game.stage.unit.at[tile].movement.reachable_tiles:
                     Overlay.add(reachable_tile, Enums.OverlayState.MOVE_REACHABLE)
@@ -25,9 +26,6 @@ func select_tile(tile: Vector2i) -> void:
                     Overlay.add(action_reachable_tile, Enums.OverlayState.ACTION_REACHABLE)
                 for actionable_tile in selected_action.actionable_tiles:
                     Overlay.add(actionable_tile, Enums.OverlayState.ATTACKABLE)
-
-        if Game.stage.unit.at[tile].team == "player":
-            Overlay.add(tile, Enums.OverlayState.PLAYER_UNIT)
         else:
             Overlay.add(tile, Enums.OverlayState.ENEMY_UNIT)
 

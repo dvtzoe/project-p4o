@@ -12,8 +12,7 @@ func recompute_tiles() -> void:
             for action in unit.actions:
                 action.compute_actionable_tiles()
 
-func spawn(type: String, coord: Vector2i, team: String) -> void:
-    var unit_scene: PackedScene = load(Constants.UNITS_TABLE[type])
+func spawn(unit_scene: PackedScene, coord: Vector2i, team: Unit.Team) -> void:
     var unit_instance: Unit = unit_scene.instantiate()
     unit_instance.position = HexUtils.tile_to_px(coord)
     

@@ -8,10 +8,10 @@ class_name UnitStatus
 
 func show_info(unit: Unit) -> void:
     name_label.text = unit.unit_name
-    if unit.team == "player":
+    if unit.team == Unit.Team.PLAYER:
         team_label.text = ""
     else:
-        team_label.text = "(%s)" % unit.team
+        team_label.text = "(Enemy)"
 
     var action_card_scene := preload("res://src/game/stage/unit_status/action_card.tscn")
     for action: Action in unit.actions:

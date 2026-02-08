@@ -2,13 +2,20 @@ extends Node2D
 
 class_name Unit
 
+enum Team {
+    PLAYER,
+    ENEMY,
+    NEUTRAL,
+}
+
 @export var unit_name: String
+@export var unit_type: PackedScene
 
 var actions: Array[Action] = []
 var health: Health
 var movement: Movement
 
-var team: String
+var team: Team
 var coord: Vector2i
 
 func _ready() -> void:

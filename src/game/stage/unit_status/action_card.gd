@@ -8,7 +8,7 @@ var action: Action
 
 func _gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-        if action.unit.team != "player":
+        if action.unit.team != Unit.Team.PLAYER:
             return
         if Game.stage.state.selected_action == action:
             Game.stage.state.selected_action = null

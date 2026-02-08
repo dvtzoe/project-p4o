@@ -1,32 +1,14 @@
-[gd_scene format=4 uid="uid://dkjspea5usini"]
+[gd_scene format=3 uid="uid://dkjspea5usini"]
 
 [ext_resource type="Script" uid="uid://c74fpkywhjkn0" path="res://src/game/stage/stage.gd" id="1_dwwv6"]
-[ext_resource type="Texture2D" uid="uid://dlniqc04j2lrq" path="res://assets/stage/sprites/tiles/hexagon.svg" id="1_e4yij"]
-[ext_resource type="Script" uid="uid://eftlnf5t2wq3" path="res://src/game/stage/tile_map_layer.gd" id="3_8en0l"]
 [ext_resource type="Script" uid="uid://bnh2xhqiowppf" path="res://src/game/stage/camera.gd" id="3_k8r72"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mphb"]
-texture = ExtResource("1_e4yij")
-texture_region_size = Vector2i(128, 128)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_xm7l5"]
-tile_shape = 3
-tile_size = Vector2i(110, 128)
-sources/0 = SubResource("TileSetAtlasSource_6mphb")
-
-[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("overlays_layer", "units_layer", "canvas_layer", "tile_map_layer")]
+[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("overlays_layer", "units_layer", "canvas_layer")]
 process_mode = 1
 script = ExtResource("1_dwwv6")
 overlays_layer = NodePath("OverlaysLayer")
 units_layer = NodePath("UnitsLayer")
 canvas_layer = NodePath("CanvasLayer")
-tile_map_layer = NodePath("TileMapLayer")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=107359172]
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wMAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAABAP3/AAAAAAAAAAACAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_xm7l5")
-script = ExtResource("3_8en0l")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1556455645]
 script = ExtResource("3_k8r72")
@@ -39,5 +21,3 @@ z_index = 1
 
 [node name="UnitsLayer" type="Node2D" parent="." unique_id=81086198]
 z_index = 2
-
-[connection signal="tile_clicked" from="TileMapLayer" to="." method="_on_tile_map_layer_tile_clicked"]

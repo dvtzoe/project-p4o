@@ -116,6 +116,7 @@
     "text": "We'll see how things go. I'll be off!"
   },
   {
-    "type": "stage"
+    "type": "stage",
+    "map": "intro"
   }
 ]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfskvk3qod5su"]
 
-[ext_resource type="Script" uid="uid://cdijn2gdecu6w" path="res://src/game/story/choice.gd" id="1_i04ns"]
+[ext_resource type="Script" uid="uid://cdijn2gdecu6w" path="res://src/game/story/choice_contaitner.gd" id="1_0jolj"]
 
 [node name="Choice" type="MarginContainer" unique_id=56562266]
 offset_right = 40.0
@@ -9,7 +9,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
-script = ExtResource("1_i04ns")
+script = ExtResource("1_0jolj")
 
 [node name="Button" type="Button" parent="." unique_id=170606513]
 layout_mode = 2

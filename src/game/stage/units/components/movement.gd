@@ -30,8 +30,8 @@ func compute_reachable_tiles() -> void:
         for neighbor in neighbors:
             if Game.stage.unit.at.has(neighbor):
                 continue
-            if Game.stage.tile_map_layer.get_cell_source_id(neighbor) == -1:
+            if Game.stage.map.get_cell_source_id(neighbor) == -1:
                 continue
             
             frontier_positions.append(neighbor)
-            frontier_costs.append(current_cost + Constants.TILES[Game.stage.tile_map_layer.get_cell_source_id(neighbor)]["movement_cost"])
+            frontier_costs.append(current_cost + Constants.TILES[Game.stage.map.get_cell_source_id(neighbor)]["movement_cost"])
