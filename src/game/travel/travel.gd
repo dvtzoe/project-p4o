@@ -15,3 +15,7 @@ func _ready() -> void:
     explore_entry.setup("Explore")
     explore_entry.connect("pressed", Callable(self , "_on_explore_pressed"))
     TravelEntryContainer.add_child(explore_entry)
+
+func _on_back_button_pressed() -> void:
+    Game.change_state(Game.State.PLACE)
+    queue_free()

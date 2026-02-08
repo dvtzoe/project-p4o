@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqod6n1xug7vg"]
 
 [ext_resource type="Script" uid="uid://b2psxbarpfona" path="res://src/game/travel/travel.gd" id="1_u67h7"]
+[ext_resource type="Texture2D" uid="uid://dcbsdjmr2t550" path="res://assets/ui/icons/arrow-left.svg" id="2_rnbvs"]
 
 [node name="Travel" type="Control" unique_id=950064052 node_paths=PackedStringArray("TravelEntryContainer")]
 layout_mode = 3
@@ -52,7 +53,14 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=563566650]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=349128693]
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=2050150084]
+layout_mode = 2
+texture_normal = ExtResource("2_rnbvs")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=563566650]
 layout_mode = 2
 text = "Travel"
 
@@ -60,3 +68,4 @@ text = "Travel"
 layout_mode = 2
 
 [connection signal="gui_input" from="Backdrop" to="." method="_on_backdrop_gui_input"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
