@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfpro8xruomh"]
+
+[ext_resource type="Script" uid="uid://bswqd0o2862v5" path="res://src/game/place/datable_sprite/datable_sprite.gd" id="1_h7qvi"]
+
+[node name="DatableSprite" type="Sprite2D" unique_id=838967500]
+script = ExtResource("1_h7qvi")

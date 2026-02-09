@@ -2,6 +2,10 @@ extends Resource
 
 class_name Datable
 
+const ILLUSTS := {
+    "aiko": preload("res://assets/datables/aiko.png"),
+}
+
 @export var name: String
 @export var id: String = ""
 

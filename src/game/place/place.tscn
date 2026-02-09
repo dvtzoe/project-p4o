@@ -3,17 +3,10 @@
 [ext_resource type="Script" uid="uid://fia4fvtl1kv" path="res://src/game/place/place.gd" id="1_n7vgy"]
 [ext_resource type="Script" uid="uid://dj114dl354lk2" path="res://src/game/place/travel_button.gd" id="2_sjv80"]
 
-[node name="Place" type="Control" unique_id=383223676]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Place" type="Node" unique_id=566353898]
 script = ExtResource("1_n7vgy")
 
 [node name="Background" type="TextureRect" parent="." unique_id=951191000]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,7 +15,6 @@ grow_vertical = 2
 stretch_mode = 6
 
 [node name="TravelButton" type="Button" parent="." unique_id=1687221582]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
