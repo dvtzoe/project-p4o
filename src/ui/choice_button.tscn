@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://d2wrssbaoujko"]
+
+[node name="ChoiceButton" type="Button" unique_id=1898612859]
+text = "choice"

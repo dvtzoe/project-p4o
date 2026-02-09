@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dyd380ly62lhq"]
+
+[ext_resource type="Script" uid="uid://bnt8f3rtxq6xl" path="res://src/game/place/datable_interact/datable_interact.gd" id="1_24ge2"]
+
+[node name="DatableInteract" type="Node" unique_id=672248389 node_paths=PackedStringArray("datable_sprite", "interactions_container")]
+script = ExtResource("1_24ge2")
+datable_sprite = NodePath("DatableSprite")
+interactions_container = NodePath("Control/InteractionsContainer")
+
+[node name="Control" type="Control" parent="." unique_id=1913419077]
+layout_mode = 3
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractionsContainer" type="VBoxContainer" parent="Control" unique_id=1029459175]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DatableSprite" type="Sprite2D" parent="." unique_id=470770505]

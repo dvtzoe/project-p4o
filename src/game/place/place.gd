@@ -2,14 +2,19 @@ extends Node
 
 class_name Place
 
+const DATABLE_SPRITE_SCENE := preload("res://src/game/place/datable_sprite/datable_sprite.tscn")
+const DATABLE_INTERACT_SCENE := preload("res://src/game/place/datable_interact/datable_interact.tscn")
+
+@export var hide_on_interact: Array[Node] = []
+@export var datable_sprites_container: Node
+
 func _ready() -> void:
-    var datable_sprite_scene = preload("res://src/game/place/datable_sprite/datable_sprite.tscn")
-    var datable_sprite = datable_sprite_scene.instantiate() as DatableSprite
+    var datable_sprite = DATABLE_SPRITE_SCENE.instantiate() as DatableSprite
     var aiko = Datable.new()
     aiko.id = "aiko"
     aiko.name = "Aiko"
+    datable_sprites_container.add_child(datable_sprite)
     datable_sprite.setup(aiko)
-    add_child(datable_sprite)
 
     var viewport = get_viewport()
     viewport.size_changed.connect(datable_sprite.on_viewport_size_changed)
@@ -20,3 +25,15 @@ func _ready() -> void:
     notification_data.title = "Welcome"
     notification_data.message = "You have entered the place with %s." % aiko.name
     Notification.notify(notification_data)
+
+func interact_datable(datable: Datable) -> void:
+    for node in hide_on_interact:
+        node.visible = false
+    
+    var datable_interact = DATABLE_INTERACT_SCENE.instantiate() as DatableInteract
+    add_child(datable_interact)
+    datable_interact.setup(datable)
+
+func uninteract_datable() -> void:
+    for node in hide_on_interact:
+        node.visible = true

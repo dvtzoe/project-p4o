@@ -2,5 +2,17 @@
 
 [ext_resource type="Script" uid="uid://bswqd0o2862v5" path="res://src/game/place/datable_sprite/datable_sprite.gd" id="1_h7qvi"]
 
-[node name="DatableSprite" type="Sprite2D" unique_id=838967500]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvwcs"]
+size = Vector2(0, 0)
+
+[node name="DatableSprite" type="Area2D" unique_id=1202305157 node_paths=PackedStringArray("sprite", "collision_shape")]
 script = ExtResource("1_h7qvi")
+sprite = NodePath("Sprite2D")
+collision_shape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=591658813]
+shape = SubResource("RectangleShape2D_wvwcs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=77640522]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

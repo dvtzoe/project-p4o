@@ -2,7 +2,7 @@ extends Resource
 
 class_name Datable
 
-const ILLUSTS := {
+const ILLUSTS: Dictionary[String, Texture2D] = {
     "aiko": preload("res://assets/datables/aiko.png"),
 }
 

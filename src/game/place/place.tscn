@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://fia4fvtl1kv" path="res://src/game/place/place.gd" id="1_n7vgy"]
 [ext_resource type="Script" uid="uid://dj114dl354lk2" path="res://src/game/place/travel_button.gd" id="2_sjv80"]
 
-[node name="Place" type="Node" unique_id=566353898]
+[node name="Place" type="Node" unique_id=566353898 node_paths=PackedStringArray("hide_on_interact", "datable_sprites_container")]
 script = ExtResource("1_n7vgy")
+hide_on_interact = [NodePath("DatableSpritesContainer"), NodePath("TravelButton")]
+datable_sprites_container = NodePath("DatableSpritesContainer")
 
 [node name="Background" type="TextureRect" parent="." unique_id=951191000]
 anchors_preset = 15
@@ -14,16 +16,18 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 6
 
+[node name="DatableSpritesContainer" type="Node2D" parent="." unique_id=183408835]
+
 [node name="TravelButton" type="Button" parent="." unique_id=1687221582]
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -128.0
-offset_right = -32.0
-offset_bottom = -32.0
+offset_left = -208.0
+offset_top = -144.0
+offset_right = -16.0
+offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Travel"
