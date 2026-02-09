@@ -2,8 +2,6 @@ extends Node
 
 class_name Action
 
-@export var action_type: Enums.ActionType
-
 @onready var unit: Unit = get_parent().get_parent()
 
 var actionable_tiles: Array[Vector2i] = []
