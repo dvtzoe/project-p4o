@@ -6,6 +6,7 @@ class_name Travel
 
 func _on_explore_pressed() -> void:
     Game.change_state(Game.State.STAGE)
+    Game.stage.start(load("res://data/stages/intro.tres"))
     queue_free()
 
 func _ready() -> void:
