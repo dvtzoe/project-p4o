@@ -35,3 +35,6 @@ func start(data: StageResource) -> void:
 func _input(event: InputEvent) -> void:
     if state.is_selecting_tile and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
         state.deselect_tile()
+
+func _on_end_turn_button_pressed() -> void:
+    state.end_player_turn()

@@ -45,3 +45,10 @@ func deselect_action() -> void:
     for cell in selected_action.action_reachable_tiles:
         Overlay.remove(cell, Enums.OverlayState.ACTION_REACHABLE)
     selected_action = null
+
+
+func end_player_turn() -> void:
+    deselect_tile()
+    for unit in Game.stage.unit.at.values():
+        if unit.team == Unit.Team.PLAYER:
+            unit.on_turn_end()

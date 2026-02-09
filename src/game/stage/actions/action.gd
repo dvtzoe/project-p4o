@@ -21,3 +21,6 @@ func perform(_target: Vector2i) -> void:
 # abstract
 func compute_actionable_tiles() -> void:
     push_error("compute_actionable_tiles() not implemented in subclass of Action")
+
+func on_turn_end() -> void:
+    available_uses = action_per_turn

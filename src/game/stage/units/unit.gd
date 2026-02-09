@@ -28,3 +28,10 @@ func _ready() -> void:
 func die() -> void:
     Game.stage.unit.at.erase(coord)
     queue_free()
+
+func on_turn_end() -> void:
+    if movement:
+        movement.available_movement = movement.movement_per_turn
+        movement.compute_reachable_tiles()
+    for action in actions:
+        action.on_turn_end()
