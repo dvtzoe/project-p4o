@@ -1,9 +1,5 @@
 class_name Enums
 
-enum ActionType {
-    ATTACK,
-}
-
 enum AttackType {
     MELEE,
 }
