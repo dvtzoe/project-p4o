@@ -10,6 +10,9 @@ func _gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
         if action.unit.team != Unit.Team.PLAYER:
             return
+        if action.available_uses <= 0:
+            return
+
         if Game.stage.state.selected_action == action:
             Game.stage.state.selected_action = null
             for tile in action.action_reachable_tiles:
@@ -23,7 +26,11 @@ func _gui_input(event: InputEvent) -> void:
             for tile in action.actionable_tiles:
                 Overlay.add(tile, Enums.OverlayState.ATTACKABLE)
         
+func update() -> void:
+    action_name_label.text = "%s [%d]" % [action.action_name, action.available_uses]
+    pass
 
 func setup(action_node: Action) -> void:
     action = action_node
-    action_name_label.text = action.action_name
+    action.action_performed.connect(update)
+    update()

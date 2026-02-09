@@ -19,10 +19,16 @@ func compute_actionable_tiles() -> void:
             action_reachable_tiles.append(neighbor)
 
 func perform(target: Vector2i) -> void:
+    # Ensure target is valid
     if not Game.stage.unit.at.has(target):
         return
     var target_unit: Unit = Game.stage.unit.at[target]
     if target_unit.team == unit.team:
         return
-    
+    if available_uses <= 0:
+        return
+
+    # Perform
     target_unit.health.hurt(attack_power)
+    available_uses -= 1
+    emit_signal("action_performed")
