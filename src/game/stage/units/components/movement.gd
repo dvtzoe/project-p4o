@@ -38,9 +38,7 @@ func compute_reachable_tiles() -> void:
         
         var neighbors: Array[Vector2i] = HexUtils.get_adjacent_hex(current_pos)
         for neighbor in neighbors:
-            if Game.stage.unit.at.has(neighbor):
-                continue
-            if Game.stage.map.get_cell_source_id(neighbor) == -1:
+            if is_blocked(neighbor):
                 continue
             
             frontier_positions.append(neighbor)
