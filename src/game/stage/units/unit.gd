@@ -9,7 +9,6 @@ enum Team {
 }
 
 @export var unit_name: String
-@export var unit_type: PackedScene
 
 var actions: Array[Action] = []
 var health: Health

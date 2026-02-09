@@ -3,10 +3,13 @@ extends Node
 class_name Movement
 
 @export var movement_points: int
+@export var movement_per_turn: int = 1
 
 @onready var unit: Unit = get_parent()
 
 var reachable_tiles: Array[Vector2i] = []
+
+var available_movement: int = movement_per_turn
 
 func compute_reachable_tiles() -> void:
     reachable_tiles.clear()

@@ -9,8 +9,9 @@ func _unhandled_input(event):
                 Game.stage.state.deselect_tile()
                 return
 
-            if selected_unit.movement and selected_unit.movement.reachable_tiles.has(cell):
+            if selected_unit.movement and selected_unit.movement.available_movement > 0 and selected_unit.movement.reachable_tiles.has(cell):
                 Game.stage.unit.move_to(selected_unit, cell)
+                selected_unit.movement.available_movement -= 1
                 Game.stage.state.deselect_tile()
                 return
             if Game.stage.state.selected_action and Game.stage.state.selected_action.actionable_tiles.has(cell):
