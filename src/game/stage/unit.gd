@@ -23,11 +23,3 @@ func spawn(unit_scene: PackedScene, coord: Vector2i, team: Unit.Team) -> void:
     
     recompute_tiles()
     Game.stage.units_layer.add_child(unit_instance)
-
-
-func move_to(unit: Unit, target_tile: Vector2i) -> void:
-    at.erase(unit.coord)
-    unit.position = HexUtils.tile_to_px(target_tile)
-    unit.coord = target_tile
-    at[target_tile] = unit
-    recompute_tiles()

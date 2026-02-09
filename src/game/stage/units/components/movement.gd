@@ -38,3 +38,10 @@ func compute_reachable_tiles() -> void:
             
             frontier_positions.append(neighbor)
             frontier_costs.append(current_cost + Constants.TILES[Game.stage.map.get_cell_source_id(neighbor)]["movement_cost"])
+
+func head_to(target_tile: Vector2i) -> void:
+    Game.stage.unit.at.erase(unit.coord)
+    unit.position = HexUtils.tile_to_px(target_tile)
+    unit.coord = target_tile
+    Game.stage.unit.at[target_tile] = unit
+    Game.stage.unit.recompute_tiles()

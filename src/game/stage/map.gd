@@ -10,7 +10,7 @@ func _unhandled_input(event):
                 return
 
             if selected_unit.movement and selected_unit.movement.available_movement > 0 and selected_unit.movement.reachable_tiles.has(cell):
-                Game.stage.unit.move_to(selected_unit, cell)
+                selected_unit.movement.head_to(cell)
                 selected_unit.movement.available_movement -= 1
                 Game.stage.state.deselect_tile()
                 return
