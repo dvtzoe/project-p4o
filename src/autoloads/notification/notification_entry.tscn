@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b8i6tert1nt3w"]
+
+[ext_resource type="Script" uid="uid://d0bxifwv2rad2" path="res://src/autoloads/notification/notification_entry.gd" id="1_ugtnw"]
+
+[node name="Notification" type="PanelContainer" unique_id=419747192 node_paths=PackedStringArray("title_label", "message_label")]
+offset_right = 16.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+script = ExtResource("1_ugtnw")
+title_label = NodePath("MarginContainer/VBoxContainer/TitleLabel")
+message_label = NodePath("MarginContainer/VBoxContainer/BodyLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1382446873]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1663482186]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2100520230]
+layout_mode = 2
+text = "Title"
+
+[node name="BodyLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1294827304]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "body"

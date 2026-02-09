@@ -15,3 +15,8 @@ func _ready() -> void:
     viewport.size_changed.connect(datable_sprite.on_viewport_size_changed)
     datable_sprite.on_viewport_size_changed()
     datable_sprite.position = Vector2i(viewport.size.x / 2, viewport.size.y * 0.67)
+
+    var notification_data = NotificationData.new()
+    notification_data.title = "Welcome"
+    notification_data.message = "You have entered the place with %s." % aiko.name
+    Notification.notify(notification_data)

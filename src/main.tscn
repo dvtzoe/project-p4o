@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://cqow47bch5ocs"]
 
-[node name="Main" type="Node" unique_id=1450231543]
+[ext_resource type="Script" uid="uid://d1bgng5dhlqs2" path="res://src/main.gd" id="1_eewff"]
+
+[node name="Main" type="Node" unique_id=1450231543 node_paths=PackedStringArray("notifications_container")]
+script = ExtResource("1_eewff")
+notifications_container = NodePath("NotificationContainer")
+
+[node name="NotificationContainer" type="VBoxContainer" parent="." unique_id=1783249391]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
