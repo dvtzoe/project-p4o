@@ -18,3 +18,4 @@ func add_points(amount: int) -> void:
         # Level up
         points -= points_to_next
         level += 1
+        points_to_next = _points_to_next_level()
