@@ -2,5 +2,7 @@ extends Resource
 
 class_name SaveData
 
-@export var day: int = 0
-@export var route: String = "default"
+var day: int = 0
+var route: String = "default"
+
+var datables: Dictionary[String, Datable] = {}
