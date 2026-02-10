@@ -2,4 +2,4 @@ extends Resource
 
 class_name StoryResource
 
-var story: Array[StoryEntry] = []
+@export var story: Array[StoryEntry] = []

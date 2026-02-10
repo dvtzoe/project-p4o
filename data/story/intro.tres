@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="StoryResource" format=3 uid="uid://dl6b0bxseal0h"]
+
+[ext_resource type="Script" uid="uid://dah8a2aoxcuqx" path="res://src/game/story/resource/resource.gd" id="1_wcugn"]
+
+[resource]
+script = ExtResource("1_wcugn")
+metadata/_custom_type_script = "uid://dah8a2aoxcuqx"
