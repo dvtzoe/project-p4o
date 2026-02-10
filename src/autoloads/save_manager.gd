@@ -6,7 +6,10 @@ func new_save():
     current_save = SaveData.new()
 
 func get_saves() -> Array[String]:
-    var dir = DirAccess.open("user://saves/")
+    var user_dir = DirAccess.open("user://")
+    if not user_dir.dir_exists("saves"):
+        user_dir.make_dir("saves")
+    var dir = DirAccess.open("user://saves")
     var saves: Array[String] = []
     if dir:
         dir.list_dir_begin()
@@ -22,6 +25,9 @@ func load_save(slot: String):
     current_save = ResourceLoader.load("user://saves/%s.tres" % slot)
 
 func save_save(slot: String = ""):
+    var dir = DirAccess.open("user://")
+    if not dir.dir_exists("saves"):
+        dir.make_dir("saves")
     if slot == "":
         slot = "slot0"
     ResourceSaver.save(current_save, "user://saves/%s.tres" % slot)

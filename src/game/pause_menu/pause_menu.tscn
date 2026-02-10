@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dmt376rysku5y" path="res://assets/ui/icons/circle-plus.svg" id="1_ljy3l"]
 
 [node name="PauseMenu" type="Control" unique_id=23215452 node_paths=PackedStringArray("saves_container", "save_name_line_edit")]
-process_mode = 2
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
