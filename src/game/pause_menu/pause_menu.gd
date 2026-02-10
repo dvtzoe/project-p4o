@@ -23,10 +23,5 @@ func _ready() -> void:
 
 func _on_color_rect_gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed:
+        Game.pause_menu = null
         queue_free()
-        get_tree().paused = false
-
-func _input(event: InputEvent) -> void:
-    if event.is_action_pressed("ui_cancel"):
-        queue_free()
-        get_tree().paused = false

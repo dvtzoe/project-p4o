@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cepk6pr012ege" path="res://src/game/pause_menu/pause_menu.gd" id="1_j7ddd"]
 [ext_resource type="Texture2D" uid="uid://dmt376rysku5y" path="res://assets/ui/icons/circle-plus.svg" id="1_ljy3l"]
 
-[node name="PauseMenu" type="Control" unique_id=23215452 node_paths=PackedStringArray("saves_container")]
+[node name="PauseMenu" type="Control" unique_id=23215452 node_paths=PackedStringArray("saves_container", "save_name_line_edit")]
 process_mode = 2
 z_index = 1
 layout_mode = 3
@@ -14,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j7ddd")
 saves_container = NodePath("TabContainer/Saves/VBoxContainer/ScrollContainer/VBoxContainer")
+save_name_line_edit = NodePath("TabContainer/Saves/VBoxContainer/HBoxContainer/LineEdit")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=18240804]
 layout_mode = 1
