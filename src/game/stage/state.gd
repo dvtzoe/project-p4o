@@ -9,6 +9,9 @@ var selected_action: Action
 
 var current_wave: int = 0
 
+## [preparation, playing, completed]
+var state: String = "preparation"
+
 func select_tile(tile: Vector2i) -> void:
     is_selecting_tile = true
     selected_tile = tile

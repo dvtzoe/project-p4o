@@ -33,6 +33,7 @@ func open() -> void:
     visible = true
 
 func close() -> void:
+    deselect_spawning_unit()
     visible = false
 
 func setup() -> void:
@@ -41,3 +42,4 @@ func setup() -> void:
         spawn_button.text = unit_type
         spawn_button.setup(UNIT_SCENES[unit_type])
         spawn_buttons_container.add_child(spawn_button)
+    open()

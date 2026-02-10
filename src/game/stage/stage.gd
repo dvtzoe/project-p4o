@@ -10,6 +10,9 @@ class_name Stage
 @export var unit: StageUnit
 @export var spawner: StageSpawner
 
+@export var end_turn_button: Button
+@export var end_preparation_button: Button
+
 var map: TileMapLayer
 
 func start(data: StageResource) -> void:
@@ -42,3 +45,9 @@ func _input(event: InputEvent) -> void:
 
 func _on_end_turn_button_pressed() -> void:
     state.end_player_turn()
+
+func _on_end_preparation_button_pressed() -> void:
+    state.state = "playing"
+    spawner.close()
+    end_preparation_button.visible = false
+    end_turn_button.visible = true
