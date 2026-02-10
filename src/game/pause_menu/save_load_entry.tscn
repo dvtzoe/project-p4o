@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://dsyrkpy545usu"]
 
-[node name="SaveLoadEntry" type="MarginContainer" unique_id=690015591]
+[ext_resource type="Script" uid="uid://cuoj0y3itx5rm" path="res://src/game/pause_menu/save_load_entry.gd" id="1_ti8vl"]
+
+[node name="SaveLoadEntry" type="Button" unique_id=1961959054]
 offset_right = 56.0
 offset_bottom = 31.0
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="Button" type="Button" parent="." unique_id=474992673]
-layout_mode = 2
 text = "Save ?"
+alignment = 0
+script = ExtResource("1_ti8vl")

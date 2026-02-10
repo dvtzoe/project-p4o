@@ -28,7 +28,7 @@ func refresh_saves_list() -> void:
         child.queue_free()
     var saves: Array[String] = SaveManager.get_saves()
     for save in saves:
-        var save_entry_instance: MarginContainer = SAVE_ENTRY_SCENE.instantiate()
-        save_entry_instance.set("slot_name", save)
-        save_entry_instance.get_node("Button").connect("pressed", Callable(self , "_on_save_pressed").bind(save))
+        var save_entry_instance := SAVE_ENTRY_SCENE.instantiate()
+        save_entry_instance.setup(save)
+        save_entry_instance.connect("pressed", Callable(self , "_on_save_pressed").bind(save))
         saves_container.add_child(save_entry_instance)
