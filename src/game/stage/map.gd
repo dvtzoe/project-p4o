@@ -1,6 +1,6 @@
 extends TileMapLayer
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
         var cell = local_to_map(to_local(get_global_mouse_position()))
         if Game.stage.state.is_selecting_tile and Game.stage.unit.at.has(Game.stage.state.selected_tile):
@@ -18,5 +18,12 @@ func _unhandled_input(event):
                 var action_node = Game.stage.state.selected_action
                 action_node.perform(cell)
             Game.stage.state.deselect_tile()
-            return
-        Game.stage.state.select_tile(cell)
+        elif Game.stage.spawner.selected_unit_scene:
+            Game.stage.unit.spawn(Game.stage.spawner.selected_unit_scene, cell, Unit.Team.PLAYER)
+        else:
+            Game.stage.state.select_tile(cell)
+    elif event is InputEventMouseMotion:
+        var cell = local_to_map(to_local(get_global_mouse_position()))
+        if Game.stage.spawner.selected_unit_scene:
+            Game.stage.spawner.unit_preview_instance.visible = true
+            Game.stage.spawner.unit_preview_instance.position = HexUtils.tile_to_px(cell)

@@ -5,12 +5,15 @@ class_name Stage
 @export var overlays_layer: Node2D
 @export var units_layer: Node2D
 @export var canvas_layer: CanvasLayer
-@export var map: TileMapLayer
 
-var state: StageState = StageState.new()
-var unit: StageUnit = StageUnit.new()
+@export var state: StageState
+@export var unit: StageUnit
+@export var spawner: StageSpawner
+
+var map: TileMapLayer
 
 func start(data: StageResource) -> void:
+    spawner.setup()
     if data.map:
         map = data.map.instantiate() as TileMapLayer
         add_child(map)
@@ -35,6 +38,7 @@ func start(data: StageResource) -> void:
 func _input(event: InputEvent) -> void:
     if state.is_selecting_tile and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
         state.deselect_tile()
+        spawner.selected_unit_scene = null
 
 func _on_end_turn_button_pressed() -> void:
     state.end_player_turn()

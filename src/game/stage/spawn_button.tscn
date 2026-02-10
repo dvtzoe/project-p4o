@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dxwr3rfoo1k80"]
+
+[ext_resource type="Script" uid="uid://bmc6vgr5fex1d" path="res://src/game/stage/spawn_button.gd" id="1_ntnxj"]
+
+[node name="SpawnButton" type="Button" unique_id=393126843]
+offset_right = 128.0
+offset_bottom = 31.0
+text = "Unit ?"
+script = ExtResource("1_ntnxj")

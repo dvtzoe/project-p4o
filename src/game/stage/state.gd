@@ -1,3 +1,5 @@
+extends Node
+
 class_name StageState
 
 var is_selecting_tile: bool = false
