@@ -7,7 +7,7 @@ class_name MainMenu
 
 func _on_new_button_pressed() -> void:
     SaveManager.new_save()
-    Game.change_state(Game.State.PLACE)
+    Game.change_state("place")
 
 
 func _on_load_button_pressed() -> void:

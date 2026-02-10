@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://yrgav5a5xiwh"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_mkryg"]
+[ext_resource type="Script" uid="uid://me6dbsc7ao0k" path="res://src/game/explore/explore.gd" id="1_x0wqq"]
+[ext_resource type="PackedScene" uid="uid://4qnjqbcfjo4k" path="res://src/game/explore/stage_button.tscn" id="2_j57jv"]
+[ext_resource type="Resource" uid="uid://dmvenfufq07bn" path="res://data/stages/intro.tres" id="4_8rdvm"]
+
+[node name="Explore" type="Node" unique_id=18332411]
+script = ExtResource("1_x0wqq")
+
+[node name="Background" type="TextureRect" parent="." unique_id=574882532]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mkryg")
+stretch_mode = 6
+
+[node name="Buttons" type="Control" parent="." unique_id=1853546770]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StageButton" parent="Buttons" unique_id=618005498 instance=ExtResource("2_j57jv")]
+layout_mode = 0
+anchors_preset = 0
+stage_resource = ExtResource("4_8rdvm")

@@ -5,8 +5,7 @@ class_name Travel
 @export var TravelEntryContainer: VBoxContainer
 
 func _on_explore_pressed() -> void:
-    Game.change_state(Game.State.STAGE)
-    Game.stage.start(load("res://data/stages/intro.tres"))
+    Game.change_state("explore")
     queue_free()
 
 func _ready() -> void:
@@ -18,5 +17,5 @@ func _ready() -> void:
     TravelEntryContainer.add_child(explore_entry)
 
 func _on_back_button_pressed() -> void:
-    Game.change_state(Game.State.PLACE)
+    Game.change_state("place")
     queue_free()

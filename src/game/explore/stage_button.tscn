@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://4qnjqbcfjo4k"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_b3n0n"]
+[ext_resource type="Script" uid="uid://cie3twb8ywvq0" path="res://src/game/explore/stage_button.gd" id="2_m22r8"]
+
+[node name="StageButton" type="TextureButton" unique_id=618005498]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_b3n0n")
+script = ExtResource("2_m22r8")
