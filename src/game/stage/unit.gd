@@ -21,8 +21,8 @@ func spawn(unit_scene: PackedScene, coord: Vector2i, team: Unit.Team) -> void:
 
     at[coord] = unit_instance
     
-    recompute_tiles()
     Game.stage.units_layer.add_child(unit_instance)
+    recompute_tiles()
 
 func despawn(coord: Vector2i) -> void:
     if at.has(coord):
