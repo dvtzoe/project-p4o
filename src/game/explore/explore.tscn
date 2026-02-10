@@ -26,6 +26,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StageButton" parent="Buttons" unique_id=618005498 instance=ExtResource("2_j57jv")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = -1
 stage_resource = ExtResource("4_8rdvm")
