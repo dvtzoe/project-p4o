@@ -27,3 +27,7 @@ func _input(event: InputEvent) -> void:
             zoom += Vector2.ONE * 0.1
         elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
             zoom -= Vector2.ONE * 0.1
+    if Input.is_action_pressed("zoom_in"):
+        zoom += Vector2.ONE * 0.1
+    if Input.is_action_pressed("zoom_out"):
+        zoom -= Vector2.ONE * 0.1
