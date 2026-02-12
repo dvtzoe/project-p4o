@@ -1,13 +1,24 @@
 extends Node
 
-var state: String
+enum States {
+    MAIN_MENU = 0,
+    STORY = 1,
+    STAGE = 2,
+    PLACE = 3,
+    TRAVEL = 4,
+    EXPLORE = 5,
+}
 
-const PLACE_SCENE := preload("res://src/game/place/place.tscn")
-const MAIN_MENU_SCENE := preload("res://src/game/main_menu/menu.tscn")
-const STAGE_SCENE := preload("res://src/game/stage/stage.tscn")
-const STORY_SCENE := preload("res://src/game/story/story.tscn")
-const TRAVEL_SCENE := preload("res://src/game/travel/travel.tscn")
-const EXPLORE_SCENE := preload("res://src/game/explore/explore.tscn")
+const SCENES_PRELOADS := {
+    States.MAIN_MENU: preload("res://src/game/main_menu/menu.tscn"),
+    States.STORY: preload("res://src/game/story/story.tscn"),
+    States.STAGE: preload("res://src/game/stage/stage.tscn"),
+    States.PLACE: preload("res://src/game/place/place.tscn"),
+    States.TRAVEL: preload("res://src/game/travel/travel.tscn"),
+    States.EXPLORE: preload("res://src/game/explore/explore.tscn"),
+}
+
+var state: States
 
 var place: Place
 var main_menu: MainMenu
@@ -16,29 +27,29 @@ var story: Story
 var travel: Travel
 var explore: Explore
 
-func change_state(new_state: String) -> void:
+func change_state(new_state: States) -> void:
     state = new_state
     for child in get_children():
         child.queue_free()
     match state:
-        "place":
-            place = PLACE_SCENE.instantiate()
+        States.PLACE:
+            place = SCENES_PRELOADS[States.PLACE].instantiate()
             add_child(place)
-        "main_menu":
-            main_menu = MAIN_MENU_SCENE.instantiate()
+        States.MAIN_MENU:
+            main_menu = SCENES_PRELOADS[States.MAIN_MENU].instantiate()
             add_child(main_menu)
-        "story":
-            story = STORY_SCENE.instantiate()
+        States.STORY:
+            story = SCENES_PRELOADS[States.STORY].instantiate()
             add_child(story)
-        "stage":
-            stage = STAGE_SCENE.instantiate()
+        States.STAGE:
+            stage = SCENES_PRELOADS[States.STAGE].instantiate()
             add_child(stage)
-        "travel":
-            travel = TRAVEL_SCENE.instantiate()
+        States.TRAVEL:
+            travel = SCENES_PRELOADS[States.TRAVEL].instantiate()
             add_child(travel)
-        "explore":
-            explore = EXPLORE_SCENE.instantiate()
+        States.EXPLORE:
+            explore = SCENES_PRELOADS[States.EXPLORE].instantiate()
             add_child(explore)
 
 func _ready() -> void:
-    change_state("main_menu")
+    change_state(States.MAIN_MENU)
