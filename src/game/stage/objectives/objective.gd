@@ -17,7 +17,6 @@ func setup(objective_resources: Array[ObjectiveResource]) -> void:
         })
     Game.stage.unit.unit_spawned.connect(_on_unit_spawned)
     refresh()
-    close()
 
 func _on_unit_spawned(unit: Unit) -> void:
     unit.unit_died.connect(_on_unit_died)
@@ -51,12 +50,6 @@ func _check_kill_all_enemies() -> bool:
 
 func _check_survive_all_waves() -> bool:
     return Game.stage.state.waves_finished
-
-func open() -> void:
-    visible = true
-
-func close() -> void:
-    visible = false
 
 func toggle() -> void:
     visible = not visible

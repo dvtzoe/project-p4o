@@ -96,6 +96,13 @@ grow_vertical = 2
 script = ExtResource("4_wciyg")
 objectives_container = NodePath("ObjectivesContainer")
 
+[node name="Label" type="Label" parent="CanvasLayer/StageObjective" unique_id=1835154460]
+layout_mode = 2
+text = "Objectives"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/StageObjective" unique_id=1580979622]
+layout_mode = 2
+
 [node name="ObjectivesContainer" type="VBoxContainer" parent="CanvasLayer/StageObjective" unique_id=1369603220]
 layout_mode = 2
 
