@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b2psxbarpfona" path="res://src/game/travel/travel.gd" id="1_u67h7"]
 [ext_resource type="Texture2D" uid="uid://dcbsdjmr2t550" path="res://assets/ui/icons/arrow-left.svg" id="2_rnbvs"]
 
-[node name="Travel" type="Control" unique_id=950064052 node_paths=PackedStringArray("TravelEntryContainer")]
+[node name="Travel" type="Control" unique_id=950064052 node_paths=PackedStringArray("travel_entry_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u67h7")
-TravelEntryContainer = NodePath("PanelContainer/MarginContainer/VBoxContainer/TravelEntryContainer")
+travel_entry_container = NodePath("PanelContainer/MarginContainer/VBoxContainer/TravelEntryContainer")
 
 [node name="Backdrop" type="ColorRect" parent="." unique_id=1269079318]
 layout_mode = 1
