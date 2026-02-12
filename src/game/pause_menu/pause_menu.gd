@@ -20,8 +20,7 @@ func _ready() -> void:
 
 func _on_color_rect_gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed:
-        Game.pause_menu = null
-        queue_free()
+        SigBus.toggle_pause_menu.emit()
 
 func refresh_saves_list() -> void:
     for child in saves_container.get_children():
