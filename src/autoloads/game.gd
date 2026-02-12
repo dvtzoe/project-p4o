@@ -18,6 +18,8 @@ const SCENES_PRELOADS := {
     States.EXPLORE: preload("res://src/game/explore/explore.tscn"),
 }
 
+@onready var game: Node = get_tree().current_scene.game
+
 var state: States
 
 var place: Place
@@ -29,27 +31,27 @@ var explore: Explore
 
 func change_state(new_state: States) -> void:
     state = new_state
-    for child in get_children():
+    for child in game.get_children():
         child.queue_free()
     match state:
         States.PLACE:
             place = SCENES_PRELOADS[States.PLACE].instantiate()
-            add_child(place)
+            game.add_child(place)
         States.MAIN_MENU:
             main_menu = SCENES_PRELOADS[States.MAIN_MENU].instantiate()
-            add_child(main_menu)
+            game.add_child(main_menu)
         States.STORY:
             story = SCENES_PRELOADS[States.STORY].instantiate()
-            add_child(story)
+            game.add_child(story)
         States.STAGE:
             stage = SCENES_PRELOADS[States.STAGE].instantiate()
-            add_child(stage)
+            game.add_child(stage)
         States.TRAVEL:
             travel = SCENES_PRELOADS[States.TRAVEL].instantiate()
-            add_child(travel)
+            game.add_child(travel)
         States.EXPLORE:
             explore = SCENES_PRELOADS[States.EXPLORE].instantiate()
-            add_child(explore)
+            game.add_child(explore)
 
 func _ready() -> void:
     change_state(States.MAIN_MENU)

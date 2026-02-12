@@ -5,6 +5,8 @@ class_name MainScene
 const PAUSE_MENU_SCENE := preload("res://src/game/pause_menu/pause_menu.tscn")
 
 @export var notifications_container: VBoxContainer
+@export var canvas: CanvasLayer
+@export var game: Node
 
 var pause_menu: PauseMenu
 
@@ -18,4 +20,4 @@ func _input(event: InputEvent) -> void:
             pause_menu = null
         else:
             pause_menu = PAUSE_MENU_SCENE.instantiate() as PauseMenu
-            add_child(pause_menu)
+            canvas.add_child(pause_menu)

@@ -2,11 +2,17 @@
 
 [ext_resource type="Script" uid="uid://d1bgng5dhlqs2" path="res://src/main.gd" id="1_eewff"]
 
-[node name="Main" type="Node" unique_id=1450231543 node_paths=PackedStringArray("notifications_container")]
+[node name="Main" type="Node" unique_id=1450231543 node_paths=PackedStringArray("notifications_container", "canvas", "game")]
 script = ExtResource("1_eewff")
-notifications_container = NodePath("NotificationContainer")
+notifications_container = NodePath("CanvasLayer/NotificationContainer")
+canvas = NodePath("CanvasLayer")
+game = NodePath("Game")
 
-[node name="NotificationContainer" type="VBoxContainer" parent="." unique_id=1783249391]
+[node name="Game" type="Node" parent="." unique_id=16818409]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=484079162]
+
+[node name="NotificationContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1783249391]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
