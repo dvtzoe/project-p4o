@@ -8,6 +8,8 @@ var selected_tile: Vector2i
 var selected_action: Action
 
 var current_wave: int = 0
+var total_waves: int = 0
+var waves_finished: bool = false
 
 ## [preparation, playing, completed]
 var state: String = "preparation"

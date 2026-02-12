@@ -8,6 +8,8 @@ enum Team {
     NEUTRAL,
 }
 
+signal unit_died(unit: Unit)
+
 @export var unit_name: String
 
 var actions: Array[Action] = []
@@ -16,6 +18,8 @@ var movement: Movement
 
 var team: Team
 var coord: Vector2i
+
+var is_dying: bool = false
 
 func _ready() -> void:
     if has_node("Movement"):
@@ -26,6 +30,8 @@ func _ready() -> void:
         actions.append(action)
 
 func die() -> void:
+    is_dying = true
+    unit_died.emit(self )
     Game.stage.unit.at.erase(coord)
     queue_free()
 

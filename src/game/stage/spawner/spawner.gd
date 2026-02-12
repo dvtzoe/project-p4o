@@ -2,7 +2,7 @@ extends PanelContainer
 
 class_name StageSpawner
 
-const SPAWN_BUTTON_SCENE := preload("res://src/game/stage/spawn_button.tscn")
+const SPAWN_BUTTON_SCENE := preload("res://src/game/stage/spawner/spawn_button.tscn")
 
 const UNIT_SCENES = {
     "pawn": preload("res://src/game/stage/units/pieces/pawn.tscn"),

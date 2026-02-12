@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://c74fpkywhjkn0" path="res://src/game/stage/stage.gd" id="1_dwwv6"]
 [ext_resource type="Script" uid="uid://oyd5tkqnp7e8" path="res://src/game/stage/unit.gd" id="3_8en0l"]
 [ext_resource type="Script" uid="uid://bnh2xhqiowppf" path="res://src/game/stage/camera.gd" id="3_k8r72"]
-[ext_resource type="Script" uid="uid://b5l5vvwhtwh3x" path="res://src/game/stage/spawner.gd" id="3_otqg8"]
+[ext_resource type="Script" uid="uid://b5l5vvwhtwh3x" path="res://src/game/stage/spawner/spawner.gd" id="3_otqg8"]
 [ext_resource type="Script" uid="uid://cd7blwagp1wwm" path="res://src/game/stage/state.gd" id="4_otqg8"]
+[ext_resource type="Script" uid="uid://b4fahn23komu4" path="res://src/game/stage/objectives/objective.gd" id="4_wciyg"]
 
-[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("overlays_layer", "units_layer", "canvas_layer", "state", "unit", "spawner", "end_turn_button", "end_preparation_button")]
+[node name="Stage" type="Node" unique_id=1431635223 node_paths=PackedStringArray("overlays_layer", "units_layer", "canvas_layer", "state", "unit", "spawner", "objective", "end_turn_button", "end_preparation_button")]
 process_mode = 1
 script = ExtResource("1_dwwv6")
 overlays_layer = NodePath("OverlaysLayer")
@@ -15,6 +16,7 @@ canvas_layer = NodePath("CanvasLayer")
 state = NodePath("State")
 unit = NodePath("Unit")
 spawner = NodePath("CanvasLayer/Spawner")
+objective = NodePath("CanvasLayer/StageObjective")
 end_turn_button = NodePath("CanvasLayer/EndTurnButton")
 end_preparation_button = NodePath("CanvasLayer/EndPreparationButton")
 
@@ -26,7 +28,7 @@ move_speed = 256.0
 
 [node name="EndTurnButton" type="Button" parent="CanvasLayer" unique_id=842255146]
 visible = false
-anchors_preset = -1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -40,7 +42,7 @@ grow_vertical = 0
 text = "End turn"
 
 [node name="EndPreparationButton" type="Button" parent="CanvasLayer" unique_id=1873925804]
-anchors_preset = -1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -80,6 +82,20 @@ text = "Spawn"
 
 [node name="SpawnButtonContainer" type="VBoxContainer" parent="CanvasLayer/Spawner/MarginContainer/VBoxContainer" unique_id=1466202780]
 custom_minimum_size = Vector2(136, 384)
+layout_mode = 2
+
+[node name="StageObjective" type="VBoxContainer" parent="CanvasLayer" unique_id=1672508671 node_paths=PackedStringArray("objectives_container")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("4_wciyg")
+objectives_container = NodePath("ObjectivesContainer")
+
+[node name="ObjectivesContainer" type="VBoxContainer" parent="CanvasLayer/StageObjective" unique_id=1369603220]
 layout_mode = 2
 
 [node name="OverlaysLayer" type="Node2D" parent="." unique_id=1474758098]

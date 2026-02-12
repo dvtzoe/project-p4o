@@ -2,6 +2,8 @@ extends Node
 
 class_name StageUnit
 
+signal unit_spawned(unit: Unit)
+
 var at: Dictionary[Vector2i, Unit] = {}
 
 func recompute_tiles() -> void:
@@ -23,6 +25,7 @@ func spawn(unit_scene: PackedScene, coord: Vector2i, team: Unit.Team) -> void:
     
     Game.stage.units_layer.add_child(unit_instance)
     recompute_tiles()
+    unit_spawned.emit(unit_instance)
 
 func despawn(coord: Vector2i) -> void:
     if at.has(coord):
