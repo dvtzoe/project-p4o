@@ -20,10 +20,9 @@ func on_nevermind_button_pressed() -> void:
 func on_viewport_size_changed() -> void:
     var texture = Datable.ILLUSTS.get(datable.id, null)
     var viewport_size = get_viewport().size
-    var texture_width = texture.get_width()
-    var texture_height = texture.get_height()
-    datable_sprite.scale.x = (viewport_size.y * SIZE_Y * (float(texture_width) / texture_height)) / texture_width
-    datable_sprite.scale.y = (float(viewport_size.y) * SIZE_Y) / texture_height
+    var new_scale = (float(viewport_size.y) * SIZE_Y / texture.get_height())
+    datable_sprite.scale.x = new_scale
+    datable_sprite.scale.y = new_scale
     datable_sprite.position.x = viewport_size.x * POSITION_X
     datable_sprite.position.y = viewport_size.y * POSITION_Y
 

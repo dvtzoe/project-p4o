@@ -18,8 +18,9 @@ func on_viewport_size_changed() -> void:
     var viewport_size = get_viewport().size
     var texture_width = sprite.texture.get_width()
     var texture_height = sprite.texture.get_height()
-    sprite.scale.x = (viewport_size.y * SIZE_Y * (float(texture_width) / texture_height)) / texture_width
-    sprite.scale.y = viewport_size.y * SIZE_Y / texture_height
+    var new_scale = (float(viewport_size.y) * SIZE_Y / texture_height)
+    sprite.scale.x = new_scale
+    sprite.scale.y = new_scale
 
     collision_shape.shape.size.x = texture_width * sprite.scale.x
     collision_shape.shape.size.y = texture_height * sprite.scale.y
