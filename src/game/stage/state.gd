@@ -7,9 +7,7 @@ var selected_tile: Vector2i
 
 var selected_action: Action
 
-var current_wave: int = 0
-var total_waves: int = 0
-var waves_finished: bool = false
+var current_turn: int = 0
 
 ## [preparation, playing, completed]
 var state: String = "preparation"
@@ -56,6 +54,10 @@ func deselect_action() -> void:
 
 func end_player_turn() -> void:
     deselect_tile()
+    current_turn += 1
+    print("Turn %d started" % current_turn)
     for unit in Game.stage.unit.at.values():
         if unit.team == Unit.Team.PLAYER:
             unit.on_turn_end()
+    if Game.stage.objective:
+        Game.stage.objective.check_objectives()

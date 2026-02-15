@@ -6,11 +6,11 @@ class_name MainMenu
 
 
 func _on_new_button_pressed() -> void:
-	SaveManager.new_save()
-	Game.change_state(Game.States.PLACE)
+    SaveManager.new_save()
+    Game.change_state(Game.States.PLACE)
 
 
 func _on_load_button_pressed() -> void:
-	if SaveManager.has_save("slot0"):
-		SaveManager.load("slot0")
-		Game.change_state(Game.States.PLACE)
+    if SaveManager.has_save("slot0"):
+        SaveManager.load("slot0")
+        Game.change_state(Game.States.PLACE)

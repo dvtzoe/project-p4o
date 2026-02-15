@@ -15,36 +15,62 @@ class_name Stage
 @export var end_preparation_button: Button
 
 var map: StageMap
+var stage_data: StageResource
 
 func start(data: StageResource) -> void:
+    stage_data = data
     spawner.setup()
-    state.total_waves = data.waves.size()
-    if data.objectives.size() > 0:
-        objective.setup(data.objectives)
-        objective.all_objectives_completed.connect(_on_all_objectives_completed)
+    
     if data.map:
         map = data.map.instantiate() as StageMap
         add_child(map)
-    if data.waves.size() > 0:
-        for i in range(data.waves.size()):
-            var wave = data.waves[i]
-            state.current_wave = i
-            for unit_entry: SpawnEntry in wave.spawn:
-                unit.spawn(unit_entry.unit_type, unit_entry.coord, unit_entry.team)
-            if wave.hooks.size() > 0:
-                for hook in wave.hooks:
-                    if hook is StoryHook:
-                        var story_scene = preload("res://src/game/story/story.tscn")
-                        var story_instance = story_scene.instantiate()
-                        canvas_layer.add_child(story_instance)
-                        var story_data = hook.story
-                        await story_instance.load_story(story_data)
-                        story_instance.queue_free()
-                    else:
-                        print("Unknown hook type: %s" % hook.type)
-        state.waves_finished = true
-        if data.objectives.size() > 0:
-            objective.check_objectives()
+    
+    if data.objectives.size() > 0:
+        objective.setup(data.objectives)
+        objective.all_objectives_completed.connect(_on_all_objectives_completed)
+        objective.objective_completed.connect(_on_objective_completed)
+    
+    if data.initial_wave:
+        _spawn_wave(data.initial_wave)
+
+func _spawn_wave(wave: StageWave) -> void:
+    if not wave:
+        return
+    
+    print("Spawning wave")
+    
+    for unit_entry: SpawnEntry in wave.spawn:
+        unit.spawn(unit_entry.unit_type, unit_entry.coord, unit_entry.team)
+    
+    if wave.hooks.size() > 0:
+        for hook in wave.hooks:
+            if hook is StoryHook:
+                var story_scene = preload("res://src/game/story/story.tscn")
+                var story_instance = story_scene.instantiate()
+                canvas_layer.add_child(story_instance)
+                var story_data = hook.story
+                await story_instance.load_story(story_data)
+                story_instance.queue_free()
+            else:
+                print("Unknown hook type")
+
+func _on_objective_completed(objective_index: int) -> void:
+    if objective_index >= stage_data.objectives.size():
+        return
+    
+    var objective_res = stage_data.objectives[objective_index]
+    for hook in objective_res.hooks:
+        if hook is StageHook:
+            _spawn_wave(hook.wave)
+        elif hook is StoryHook:
+            var story_scene = preload("res://src/game/story/story.tscn")
+            var story_instance = story_scene.instantiate()
+            canvas_layer.add_child(story_instance)
+            var story_data = hook.story
+            await story_instance.load_story(story_data)
+            story_instance.queue_free()
+        else:
+            print("Unknown hook type")
 
 func _on_all_objectives_completed() -> void:
     state.state = "completed"

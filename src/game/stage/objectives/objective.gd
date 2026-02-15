@@ -3,6 +3,7 @@ extends VBoxContainer
 class_name StageObjective
 
 signal all_objectives_completed
+signal objective_completed(objective_index: int)
 
 @export var objectives_container: VBoxContainer
 
@@ -22,34 +23,29 @@ func _on_unit_spawned(unit: Unit) -> void:
     unit.unit_died.connect(_on_unit_died)
 
 func _on_unit_died(_unit: Unit) -> void:
-    print("Unit died, checking objectives...")
     check_objectives()
 
 func check_objectives() -> void:
     var all_done := true
-    for obj in objective_states:
+    for i in range(objective_states.size()):
+        var obj = objective_states[i]
+        if obj["completed"]:
+            continue
         var res: ObjectiveResource = obj["resource"]
-        match res.type:
-            Enums.ObjectiveType.KILL_ALL_ENEMIES:
-                obj["completed"] = _check_kill_all_enemies()
-            Enums.ObjectiveType.SURVIVE_ALL_WAVES:
-                obj["completed"] = _check_survive_all_waves()
-        print("Objective %s completed: %s" % [res.type, obj["completed"]])
+        var was_completed = obj["completed"]
+        
+        obj["completed"] = res.is_completed()
+        
+        if not was_completed and obj["completed"]:
+            print("Objective %d completed: %s" % [i, res.get_display_text()])
+            objective_completed.emit(i)
+        
         if not obj["completed"]:
             all_done = false
+    
     refresh()
     if all_done and objective_states.size() > 0:
         all_objectives_completed.emit()
-
-func _check_kill_all_enemies() -> bool:
-    for unit: Unit in Game.stage.unit.at.values():
-        if unit.team == Unit.Team.ENEMY and not unit.is_dying:
-            print("Enemy unit still alive: %s" % unit.unit_name)
-            return false
-    return true
-
-func _check_survive_all_waves() -> bool:
-    return Game.stage.state.waves_finished
 
 func toggle() -> void:
     visible = not visible
@@ -58,14 +54,12 @@ func refresh() -> void:
     for child in objectives_container.get_children():
         child.queue_free()
     for obj in objective_states:
-        var label := Label.new()
         var res: ObjectiveResource = obj["resource"]
+        if res.hidden:
+            continue
+        var label := Label.new()
         var status = "[x] " if obj["completed"] else "[ ] "
-        match res.type:
-            Enums.ObjectiveType.KILL_ALL_ENEMIES:
-                label.text = status + "Defeat all enemies"
-            Enums.ObjectiveType.SURVIVE_ALL_WAVES:
-                label.text = status + "Survive all waves"
+        label.text = status + res.get_display_text()
         objectives_container.add_child(label)
 
 func _input(event: InputEvent) -> void:
