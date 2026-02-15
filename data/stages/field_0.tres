@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StageResource" format=3 uid="uid://c6o2lxft4ua16"]
+
+[ext_resource type="Script" uid="uid://c7vw18ym5x7j7" path="res://src/game/stage/objectives/objective_resource.gd" id="1_o1ops"]
+[ext_resource type="Script" uid="uid://b8ob7hbxt66uj" path="res://src/game/stage/resource/resource.gd" id="2_tre66"]
+[ext_resource type="Script" uid="uid://dp4lg8iuca7dr" path="res://src/game/stage/resource/wave.gd" id="3_5t8xu"]
+
+[resource]
+script = ExtResource("2_tre66")
+metadata/_custom_type_script = "uid://b8ob7hbxt66uj"

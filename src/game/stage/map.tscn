@@ -1,18 +1,8 @@
 [gd_scene format=3 uid="uid://dcx0cj80m64bo"]
 
-[ext_resource type="Texture2D" uid="uid://dlniqc04j2lrq" path="res://assets/stage/sprites/tiles/hexagon.svg" id="1_640fm"]
+[ext_resource type="TileSet" uid="uid://byl25ekvfnis0" path="res://data/maps/stage_tile_set.tres" id="1_xm5al"]
 [ext_resource type="Script" uid="uid://eftlnf5t2wq3" path="res://src/game/stage/map.gd" id="2_q2k4l"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mphb"]
-texture = ExtResource("1_640fm")
-texture_region_size = Vector2i(128, 128)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_xm7l5"]
-tile_shape = 3
-tile_size = Vector2i(110, 128)
-sources/0 = SubResource("TileSetAtlasSource_6mphb")
-
 [node name="Map" type="TileMapLayer" unique_id=1595179054]
-tile_set = SubResource("TileSet_xm7l5")
+tile_set = ExtResource("1_xm5al")
 script = ExtResource("2_q2k4l")

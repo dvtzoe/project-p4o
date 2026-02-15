@@ -14,7 +14,7 @@ class_name Stage
 @export var end_turn_button: Button
 @export var end_preparation_button: Button
 
-var map: TileMapLayer
+var map: StageMap
 
 func start(data: StageResource) -> void:
     spawner.setup()
@@ -23,7 +23,7 @@ func start(data: StageResource) -> void:
         objective.setup(data.objectives)
         objective.all_objectives_completed.connect(_on_all_objectives_completed)
     if data.map:
-        map = data.map.instantiate() as TileMapLayer
+        map = data.map.instantiate() as StageMap
         add_child(map)
     if data.waves.size() > 0:
         for i in range(data.waves.size()):

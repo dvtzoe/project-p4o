@@ -5,6 +5,7 @@
     "*.svg": "default"
   },
   "files.exclude": {
-    "**/*.uid": true
+    "**/*.uid": true,
+    "**/*.import": true
   }
 }
