@@ -2,89 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://bv1of83gdmk34" path="res://data/maps/intro.tscn" id="1_saxkb"]
 [ext_resource type="Script" uid="uid://b8ob7hbxt66uj" path="res://src/game/stage/resource/resource.gd" id="1_vunbl"]
-[ext_resource type="Script" uid="uid://dp4lg8iuca7dr" path="res://src/game/stage/resource/wave.gd" id="2_kjiae"]
 [ext_resource type="Script" uid="uid://c7vw18ym5x7j7" path="res://src/game/stage/objectives/objective_resource.gd" id="2_vykbq"]
 [ext_resource type="Script" uid="uid://c1aamguww5mt3" path="res://src/resources/hook/hook_entry.gd" id="3_m6m3g"]
-[ext_resource type="Script" uid="uid://bav85hlqapum6" path="res://src/resources/hook/story_hook.gd" id="4_6ac4o"]
-[ext_resource type="Script" uid="uid://bftpgcf4sr615" path="res://src/game/story/resource/story_entry.gd" id="5_twat8"]
-[ext_resource type="Script" uid="uid://bfiaocyt6dkue" path="res://src/game/story/resource/dialogue_entry.gd" id="6_57ecm"]
-[ext_resource type="Script" uid="uid://cjbro5r1l1exl" path="res://src/game/stage/resource/spawn_entry.gd" id="6_ajrjk"]
-[ext_resource type="Script" uid="uid://bt34xytkchctm" path="res://src/game/story/resource/choice.gd" id="8_kdrma"]
-[ext_resource type="Script" uid="uid://b7e2p3fyoft6p" path="res://src/game/story/resource/choice_entry.gd" id="8_saxkb"]
-[ext_resource type="PackedScene" uid="uid://s6gonjg0so0f" path="res://src/game/stage/units/structures/base.tscn" id="10_16eba"]
-[ext_resource type="PackedScene" uid="uid://r52hatpmrfic" path="res://src/game/stage/units/pieces/pawn.tscn" id="11_saxkb"]
 
 [sub_resource type="Resource" id="Resource_vykbq"]
 script = ExtResource("2_vykbq")
 metadata/_custom_type_script = "uid://c7vw18ym5x7j7"
 
-[sub_resource type="Resource" id="Resource_nfntd"]
-script = ExtResource("6_57ecm")
-character = "Aiko"
-text = "Hello? Is the comms working? Can you hear me?"
-metadata/_custom_type_script = "uid://bfiaocyt6dkue"
-
-[sub_resource type="Resource" id="Resource_yd1x5"]
-script = ExtResource("6_57ecm")
-character = "Aiko"
-text = "Great! It's working!"
-metadata/_custom_type_script = "uid://bfiaocyt6dkue"
-
-[sub_resource type="Resource" id="Resource_4p4he"]
-script = ExtResource("8_kdrma")
-text = "I haven't said anything yet."
-metadata/_custom_type_script = "uid://bt34xytkchctm"
-
-[sub_resource type="Resource" id="Resource_cc6o0"]
-script = ExtResource("8_saxkb")
-choices = Array[ExtResource("8_kdrma")]([SubResource("Resource_4p4he")])
-metadata/_custom_type_script = "uid://b7e2p3fyoft6p"
-
-[sub_resource type="Resource" id="Resource_5h8gf"]
-script = ExtResource("6_57ecm")
-character = "Aiko"
-text = "Oh, I think I see something! I'll go check it out!"
-metadata/_custom_type_script = "uid://bfiaocyt6dkue"
-
-[sub_resource type="Resource" id="Resource_a8ld1"]
-script = ExtResource("4_6ac4o")
-story = Array[ExtResource("5_twat8")]([SubResource("Resource_nfntd"), SubResource("Resource_yd1x5"), SubResource("Resource_cc6o0"), SubResource("Resource_5h8gf")])
-metadata/_custom_type_script = "uid://bav85hlqapum6"
-
-[sub_resource type="Resource" id="Resource_vmeke"]
-script = ExtResource("6_ajrjk")
-unit_type = ExtResource("10_16eba")
-metadata/_custom_type_script = "uid://cjbro5r1l1exl"
-
-[sub_resource type="Resource" id="Resource_icbyy"]
-script = ExtResource("6_ajrjk")
-unit_type = ExtResource("11_saxkb")
-coord = Vector2i(-1, -1)
-metadata/_custom_type_script = "uid://cjbro5r1l1exl"
-
-[sub_resource type="Resource" id="Resource_cx5c6"]
-script = ExtResource("6_ajrjk")
-unit_type = ExtResource("11_saxkb")
-coord = Vector2i(1, 0)
-team = 1
-metadata/_custom_type_script = "uid://cjbro5r1l1exl"
-
-[sub_resource type="Resource" id="Resource_d1kwe"]
-script = ExtResource("6_ajrjk")
-unit_type = ExtResource("11_saxkb")
-coord = Vector2i(0, 1)
-team = 1
-metadata/_custom_type_script = "uid://cjbro5r1l1exl"
-
-[sub_resource type="Resource" id="Resource_2qsrd"]
-script = ExtResource("2_kjiae")
-spawn = Array[ExtResource("6_ajrjk")]([SubResource("Resource_vmeke"), SubResource("Resource_icbyy"), SubResource("Resource_cx5c6"), SubResource("Resource_d1kwe")])
-hooks = Array[ExtResource("3_m6m3g")]([SubResource("Resource_a8ld1")])
-metadata/_custom_type_script = "uid://dp4lg8iuca7dr"
-
 [resource]
 script = ExtResource("1_vunbl")
 map = ExtResource("1_saxkb")
-waves = Array[ExtResource("2_kjiae")]([SubResource("Resource_2qsrd")])
 objectives = Array[ExtResource("2_vykbq")]([SubResource("Resource_vykbq")])
 metadata/_custom_type_script = "uid://b8ob7hbxt66uj"

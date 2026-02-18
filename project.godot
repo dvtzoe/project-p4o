@@ -26,6 +26,7 @@ Game="*uid://hyv6ethd4jap"
 Config="*uid://dww5fsv5wyduw"
 Notification="*uid://bnjwcvmw1h51"
 SigBus="*uid://bsgb04tyx5qwy"
+AudioManager="*res://src/autoloads/audio_manager.gd"
 
 [input]
 

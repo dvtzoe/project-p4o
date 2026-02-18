@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ccyadhyf8l2rr"]
 
-[ext_resource type="Script" uid="uid://cpgb0pxerqcl8" path="res://src/main_menu/menu.gd" id="1_r7vyc"]
+[ext_resource type="Script" uid="uid://cpgb0pxerqcl8" path="res://src/game/main_menu/menu.gd" id="1_r7vyc"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_stkh0"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("play_button")]
+[node name="Menu" type="Control" unique_id=1299471827 node_paths=PackedStringArray("play_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_r7vyc")
 play_button = NodePath("CenterContainer/VBoxContainer/NewButton")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=721695787]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,7 @@ grow_vertical = 2
 texture = ExtResource("1_stkh0")
 stretch_mode = 6
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1343053005]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,19 +31,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1274148346]
 layout_mode = 2
 
-[node name="NewButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="NewButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1809518740]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "New"
 
-[node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=100413728]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Load
 "
 
+[node name="SettingButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=457048623]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Setting"
+
+[node name="QuitButtion" type="Button" parent="CenterContainer/VBoxContainer" unique_id=703697154]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit
+"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButtion" to="." method="_on_quit_buttion_pressed"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://crocvgnkxy6ge"]
+
+[ext_resource type="Script" uid="uid://vwgccer7akf8" path="res://src/autoloads/audio_manager.gd" id="1_a8xdd"]
+
+[node name="AudioManager" type="Control" unique_id=1472852986]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a8xdd")
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1464450692]
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=478789912]
