@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1wq8pfrv6e8o" path="res://src/game/story/story.gd" id="1_dnowo"]
 
-[node name="Story" type="Control" unique_id=1707533677 node_paths=PackedStringArray("name_label", "content_label", "background_texture_rect", "choices_container")]
+[node name="Story" type="Control" unique_id=1707533677 node_paths=PackedStringArray("name_label", "content_label", "background_texture_rect", "choices_container", "sprites_node")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ name_label = NodePath("MarginContainer/VBoxContainer/HeaderMarginContainer/Panel
 content_label = NodePath("MarginContainer/VBoxContainer/BodyPanelContainer/MarginContainer/ContentRichTextLabel")
 background_texture_rect = NodePath("Background")
 choices_container = NodePath("ChoicesContainer")
+sprites_node = NodePath("Sprites")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1940345519]
 layout_mode = 1
@@ -87,3 +88,5 @@ anchor_right = 0.5
 anchor_bottom = 0.4
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprites" type="Node" parent="." unique_id=1762193873]

@@ -2,10 +2,13 @@ extends Control
 
 class_name Story
 
+const STORY_SPRITE_SCENE = preload("res://src/game/story/story_sprite.tscn")
+
 @export var name_label: Label
 @export var content_label: RichTextLabel
 @export var background_texture_rect: TextureRect
 @export var choices_container: VBoxContainer
+@export var sprites_node: Node
 
 signal ui_accept_pressed
 signal choice_made(index)
@@ -71,6 +74,12 @@ func load_story(story_data: Array[StoryEntry]) -> void:
         elif entry is StageStoryEntry:
             Game.change_state(Game.States.STAGE)
             Game.stage.start(entry.map)
+
+        elif entry is NewSpriteStoryEntry:
+            var sprite_instance := STORY_SPRITE_SCENE.instantiate() as TextureRect
+            sprite_instance.texture = entry.sprite_texture
+            sprite_instance.name = entry.sprite_id
+            sprites_node.add_child(sprite_instance)
 
         else:
             print("Unknown story entry type: %s" % entry.type)
