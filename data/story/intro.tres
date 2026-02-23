@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bfiaocyt6dkue" path="res://src/game/story/resource/dialogue_entry.gd" id="5_plig5"]
 [ext_resource type="Texture2D" uid="uid://dag63xp8fsrws" path="res://assets/datables/aiko.png" id="7_h21td"]
 [ext_resource type="Script" uid="uid://cbdgahnqww7pf" path="res://src/game/story/resource/sprite/set_sprite_size_entry.gd" id="8_1rv7p"]
+[ext_resource type="Script" uid="uid://sq4rx0n31x58" path="res://src/game/story/resource/sprite/set_sprite_position_entry.gd" id="8_4srjr"]
 
 [sub_resource type="Resource" id="Resource_8uc51"]
 script = ExtResource("4_plig5")
@@ -26,6 +27,13 @@ sprite_id = "aiko"
 size_y = 0.67
 metadata/_custom_type_script = "uid://cbdgahnqww7pf"
 
+[sub_resource type="Resource" id="Resource_uqdsr"]
+script = ExtResource("8_4srjr")
+sprite_id = "aiko"
+position_x = 0.5
+position_y = 0.5
+metadata/_custom_type_script = "uid://sq4rx0n31x58"
+
 [sub_resource type="Resource" id="Resource_njuw8"]
 script = ExtResource("5_plig5")
 character = "Aiko"
@@ -34,5 +42,5 @@ metadata/_custom_type_script = "uid://bfiaocyt6dkue"
 
 [resource]
 script = ExtResource("1_wcugn")
-story = Array[ExtResource("2_2x8il")]([SubResource("Resource_8uc51"), SubResource("Resource_1rv7p"), SubResource("Resource_4srjr"), SubResource("Resource_njuw8")])
+story = Array[ExtResource("2_2x8il")]([SubResource("Resource_8uc51"), SubResource("Resource_1rv7p"), SubResource("Resource_4srjr"), SubResource("Resource_uqdsr"), SubResource("Resource_njuw8")])
 metadata/_custom_type_script = "uid://dah8a2aoxcuqx"
