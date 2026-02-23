@@ -33,11 +33,7 @@ func load_story(story_data: Array[StoryEntry]) -> void:
         if entry is BackgroundStoryEntry:
             if Config.config.debug_skip_story:
                 continue
-            var bg_texture = load(entry.file)
-            if not bg_texture:
-                print("Failed to load background texture: %s" % entry.file)
-            else:
-                background_texture_rect.texture = bg_texture
+            background_texture_rect.texture = entry.background
         elif entry is DialogueStoryEntry:
             if Config.config.debug_skip_story:
                 continue
@@ -110,3 +106,4 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
     is_ready = true
+    scene_ready.emit()

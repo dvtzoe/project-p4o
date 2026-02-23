@@ -54,4 +54,9 @@ func change_state(new_state: States) -> void:
             game.add_child(explore)
 
 func _ready() -> void:
-    change_state(States.MAIN_MENU)
+    if Config.config.debug_play_intro:
+        change_state(States.STORY)
+        var intro_story = preload("res://data/story/intro.tres") as StoryResource
+        story.load_story(intro_story.story)
+    else:
+        change_state(States.MAIN_MENU)

@@ -1,7 +1,23 @@
 [gd_resource type="Resource" script_class="StoryResource" format=3 uid="uid://dl6b0bxseal0h"]
 
 [ext_resource type="Script" uid="uid://dah8a2aoxcuqx" path="res://src/game/story/resource/resource.gd" id="1_wcugn"]
+[ext_resource type="Script" uid="uid://bftpgcf4sr615" path="res://src/game/story/resource/story_entry.gd" id="2_2x8il"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="3_ycwie"]
+[ext_resource type="Script" uid="uid://cuqbaphm2ixxy" path="res://src/game/story/resource/background_entry.gd" id="4_plig5"]
+[ext_resource type="Script" uid="uid://bfiaocyt6dkue" path="res://src/game/story/resource/dialogue_entry.gd" id="5_plig5"]
+
+[sub_resource type="Resource" id="Resource_8uc51"]
+script = ExtResource("4_plig5")
+background = ExtResource("3_ycwie")
+metadata/_custom_type_script = "uid://cuqbaphm2ixxy"
+
+[sub_resource type="Resource" id="Resource_njuw8"]
+script = ExtResource("5_plig5")
+character = "Aiko"
+text = "Hello"
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
 
 [resource]
 script = ExtResource("1_wcugn")
+story = Array[ExtResource("2_2x8il")]([SubResource("Resource_8uc51"), SubResource("Resource_njuw8")])
 metadata/_custom_type_script = "uid://dah8a2aoxcuqx"

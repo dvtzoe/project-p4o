@@ -2,4 +2,5 @@ extends Resource
 
 class_name ConfigResource
 
-@export var debug_skip_story: bool = true
+@export var debug_skip_story: bool = false
+@export var debug_play_intro: bool = true
