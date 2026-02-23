@@ -3,6 +3,7 @@ extends Control
 class_name Story
 
 const STORY_SPRITE_SCENE = preload("res://src/game/story/story_sprite.tscn")
+const ENTER_NAME_SCENE = preload("res://src/game/story/enter_name.tscn")
 
 @export var name_label: Label
 @export var content_label: RichTextLabel
@@ -38,12 +39,18 @@ func load_story(story_data: Array[StoryEntry]) -> void:
             if Config.config.debug_skip_story:
                 continue
             if is_skipping:
-                name_label.text = entry.character
-                content_label.text = entry.text
+                if entry.character == "$mc":
+                    name_label.text = Config.config.player_name
+                else:
+                    name_label.text = entry.character
+                content_label.text = entry.text.replace("$mc", Config.config.player_name)
                 continue
             content_label.clear()
-            name_label.text = entry.character
-            full_text = entry.text
+            if entry.character == "$mc":
+                name_label.text = Config.config.player_name
+            else:
+                name_label.text = entry.character
+            full_text = entry.text.replace("$mc", Config.config.player_name)
             buffered_text = ""
             char_index = 0
             time_since_last_char = 0.0
@@ -94,7 +101,11 @@ func load_story(story_data: Array[StoryEntry]) -> void:
             var sprite = sprites_node.get_node(entry.sprite_id) as StorySprite
             sprite.queue_free()
         
-        
+        elif entry is EnterCharName:
+            var enter_name_instance = ENTER_NAME_SCENE.instantiate() as EnterName
+            add_child(enter_name_instance)
+            await enter_name_instance.name_entered
+
         else:
             print("Unknown story entry type: %s" % entry.type)
 

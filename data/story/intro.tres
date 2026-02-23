@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cjvlh12ua3bpk" path="res://src/game/story/resource/sprite/remove_sprite_entry.gd" id="10_uqdsr"]
 [ext_resource type="Script" uid="uid://bt34xytkchctm" path="res://src/game/story/resource/choice.gd" id="12_lcg47"]
 [ext_resource type="Script" uid="uid://b7e2p3fyoft6p" path="res://src/game/story/resource/choice_entry.gd" id="13_wdi5u"]
+[ext_resource type="Script" uid="uid://dawdbwl8n6bbn" path="res://src/game/story/resource/sprite/enter_name.gd" id="14_wdi5u"]
 
 [sub_resource type="Resource" id="Resource_8uc51"]
 script = ExtResource("4_plig5")
@@ -51,13 +52,13 @@ metadata/_custom_type_script = "uid://cjvlh12ua3bpk"
 
 [sub_resource type="Resource" id="Resource_lcg47"]
 script = ExtResource("5_h21td")
-sprite_id = "???"
+sprite_id = "mc"
 sprite_texture = ExtResource("10_4srjr")
 metadata/_custom_type_script = "uid://bhom2dk8vu1sw"
 
 [sub_resource type="Resource" id="Resource_u5vs0"]
 script = ExtResource("8_4srjr")
-sprite_id = "???"
+sprite_id = "mc"
 position_x = 0.5
 position_y = 0.5
 metadata/_custom_type_script = "uid://sq4rx0n31x58"
@@ -70,7 +71,7 @@ metadata/_custom_type_script = "uid://bfiaocyt6dkue"
 
 [sub_resource type="Resource" id="Resource_wdi5u"]
 script = ExtResource("8_1rv7p")
-sprite_id = "???"
+sprite_id = "mc"
 size_y = 0.67
 metadata/_custom_type_script = "uid://cbdgahnqww7pf"
 
@@ -79,12 +80,27 @@ script = ExtResource("12_lcg47")
 text = "Where am I?"
 metadata/_custom_type_script = "uid://bt34xytkchctm"
 
+[sub_resource type="Resource" id="Resource_gwkc6"]
+script = ExtResource("12_lcg47")
+text = "What going on?"
+metadata/_custom_type_script = "uid://bt34xytkchctm"
+
 [sub_resource type="Resource" id="Resource_darr1"]
 script = ExtResource("13_wdi5u")
-choices = Array[ExtResource("12_lcg47")]([SubResource("Resource_u6phu")])
+choices = Array[ExtResource("12_lcg47")]([SubResource("Resource_u6phu"), SubResource("Resource_gwkc6")])
 metadata/_custom_type_script = "uid://b7e2p3fyoft6p"
+
+[sub_resource type="Resource" id="Resource_0y3nt"]
+script = ExtResource("14_wdi5u")
+metadata/_custom_type_script = "uid://dawdbwl8n6bbn"
+
+[sub_resource type="Resource" id="Resource_ee35w"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "my name is $mc"
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
 
 [resource]
 script = ExtResource("1_wcugn")
-story = Array[ExtResource("2_2x8il")]([SubResource("Resource_8uc51"), SubResource("Resource_1rv7p"), SubResource("Resource_4srjr"), SubResource("Resource_uqdsr"), SubResource("Resource_njuw8"), SubResource("Resource_04x25"), SubResource("Resource_lcg47"), SubResource("Resource_u5vs0"), SubResource("Resource_np1cm"), SubResource("Resource_wdi5u"), SubResource("Resource_darr1")])
+story = Array[ExtResource("2_2x8il")]([SubResource("Resource_8uc51"), SubResource("Resource_1rv7p"), SubResource("Resource_4srjr"), SubResource("Resource_uqdsr"), SubResource("Resource_njuw8"), SubResource("Resource_04x25"), SubResource("Resource_lcg47"), SubResource("Resource_u5vs0"), SubResource("Resource_np1cm"), SubResource("Resource_wdi5u"), SubResource("Resource_darr1"), SubResource("Resource_0y3nt"), SubResource("Resource_ee35w")])
 metadata/_custom_type_script = "uid://dah8a2aoxcuqx"

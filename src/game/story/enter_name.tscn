@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dhxabqw4ud2x6"]
+
+[ext_resource type="Script" uid="uid://x5ai276ywahn" path="res://src/game/story/enter_name.gd" id="1_4uift"]
+
+[node name="EnterName" type="Control" unique_id=803140848 node_paths=PackedStringArray("line_edit", "button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4uift")
+line_edit = NodePath("VBoxContainer/LineEdit")
+button = NodePath("VBoxContainer/Button")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1223852722]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=637587880]
+layout_mode = 2
+text = "What is your name?"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer" unique_id=1766143206]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=464993462]
+layout_mode = 2
+text = "Enter"
