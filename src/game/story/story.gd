@@ -34,7 +34,7 @@ func load_story(story_data: Array[StoryEntry]) -> void:
         if entry is BackgroundStoryEntry:
             if Config.config.debug_skip_story:
                 continue
-            background_texture_rect.texture = entry.background
+            await fade_background(entry.background)
         elif entry is DialogueStoryEntry:
             if Config.config.debug_skip_story:
                 continue
@@ -136,3 +136,12 @@ func _process(delta: float) -> void:
 func _ready() -> void:
     is_ready = true
     scene_ready.emit()
+
+func fade_background(new_texture: Texture2D, duration: float = 0.3) -> void:
+    var tween = create_tween()
+    tween.tween_property(background_texture_rect, "modulate:a", 0.0, duration)
+    await tween.finished
+    background_texture_rect.texture = new_texture
+    var tween_in = create_tween()
+    tween_in.tween_property(background_texture_rect, "modulate:a", 1.0, duration)
+    await tween_in.finished

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djhjlsxm3bly3"
-path="res://.godot/imported/download20260201225131.png-4b1d2cd88f134f97dad3b309dd141f8a.ctex"
+uid="uid://b3y0nw21o0f78"
+path="res://.godot/imported/Living Room - Sitting Area.png-73b55aed4a74e64b996982749cd56e0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/download20260201225131.png"
-dest_files=["res://.godot/imported/download20260201225131.png-4b1d2cd88f134f97dad3b309dd141f8a.ctex"]
+source_file="res://assets/backgrounds/space_bunker/Pencil/Living Room - Sitting Area.png"
+dest_files=["res://.godot/imported/Living Room - Sitting Area.png-73b55aed4a74e64b996982749cd56e0a.ctex"]
 
 [params]
 

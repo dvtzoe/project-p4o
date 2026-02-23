@@ -2,53 +2,55 @@
 
 [ext_resource type="Script" uid="uid://dah8a2aoxcuqx" path="res://src/game/story/resource/resource.gd" id="1_wcugn"]
 [ext_resource type="Script" uid="uid://bftpgcf4sr615" path="res://src/game/story/resource/story_entry.gd" id="2_2x8il"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="3_ycwie"]
+[ext_resource type="Texture2D" uid="uid://1xf4tv71xoes" path="res://assets/backgrounds/white.png" id="3_04x25"]
+[ext_resource type="Texture2D" uid="uid://c7i65dqkk1tuc" path="res://assets/backgrounds/space_staton/jpgs/c5.jpg" id="3_u5vs0"]
 [ext_resource type="Script" uid="uid://cuqbaphm2ixxy" path="res://src/game/story/resource/background_entry.gd" id="4_plig5"]
 [ext_resource type="Script" uid="uid://bhom2dk8vu1sw" path="res://src/game/story/resource/sprite/new_sprite_entry.gd" id="5_h21td"]
 [ext_resource type="Script" uid="uid://bfiaocyt6dkue" path="res://src/game/story/resource/dialogue_entry.gd" id="5_plig5"]
 [ext_resource type="Texture2D" uid="uid://dag63xp8fsrws" path="res://assets/datables/aiko.png" id="7_h21td"]
 [ext_resource type="Script" uid="uid://cbdgahnqww7pf" path="res://src/game/story/resource/sprite/set_sprite_size_entry.gd" id="8_1rv7p"]
 [ext_resource type="Script" uid="uid://sq4rx0n31x58" path="res://src/game/story/resource/sprite/set_sprite_position_entry.gd" id="8_4srjr"]
-[ext_resource type="Texture2D" uid="uid://djhjlsxm3bly3" path="res://assets/character/download20260201225131.png" id="10_4srjr"]
+[ext_resource type="Texture2D" uid="uid://lh36bqdh5ivo" path="res://assets/character/mc/mc_normal.png" id="10_4srjr"]
 [ext_resource type="Script" uid="uid://cjvlh12ua3bpk" path="res://src/game/story/resource/sprite/remove_sprite_entry.gd" id="10_uqdsr"]
 [ext_resource type="Script" uid="uid://bt34xytkchctm" path="res://src/game/story/resource/choice.gd" id="12_lcg47"]
 [ext_resource type="Script" uid="uid://b7e2p3fyoft6p" path="res://src/game/story/resource/choice_entry.gd" id="13_wdi5u"]
 [ext_resource type="Script" uid="uid://dawdbwl8n6bbn" path="res://src/game/story/resource/sprite/enter_name.gd" id="14_wdi5u"]
+[ext_resource type="Texture2D" uid="uid://31hg7cnse26e" path="res://assets/character/mc/mc_feel_bad.png" id="16_04x25"]
+[ext_resource type="Texture2D" uid="uid://cctljve0b5lkh" path="res://assets/character/mc/mc_angry.png" id="17_u6phu"]
+
+[sub_resource type="Resource" id="Resource_gh8tn"]
+script = ExtResource("4_plig5")
+background = ExtResource("3_04x25")
+metadata/_custom_type_script = "uid://cuqbaphm2ixxy"
 
 [sub_resource type="Resource" id="Resource_8uc51"]
 script = ExtResource("4_plig5")
-background = ExtResource("3_ycwie")
+background = ExtResource("3_u5vs0")
 metadata/_custom_type_script = "uid://cuqbaphm2ixxy"
-
-[sub_resource type="Resource" id="Resource_1rv7p"]
-script = ExtResource("5_h21td")
-sprite_id = "aiko"
-sprite_texture = ExtResource("7_h21td")
-metadata/_custom_type_script = "uid://bhom2dk8vu1sw"
-
-[sub_resource type="Resource" id="Resource_4srjr"]
-script = ExtResource("8_1rv7p")
-sprite_id = "aiko"
-size_y = 0.67
-metadata/_custom_type_script = "uid://cbdgahnqww7pf"
-
-[sub_resource type="Resource" id="Resource_uqdsr"]
-script = ExtResource("8_4srjr")
-sprite_id = "aiko"
-position_x = 0.5
-position_y = 0.5
-metadata/_custom_type_script = "uid://sq4rx0n31x58"
 
 [sub_resource type="Resource" id="Resource_njuw8"]
 script = ExtResource("5_plig5")
-character = "Aiko"
-text = "Hello"
+character = "???"
+text = "Cold light flickered overhead.When I opened my eyes, the ceiling above me was a grid of sterile white panels—some cracked, some blinking as if struggling to stay alive. The air smelled metallic, like rust and recycled oxygen."
 metadata/_custom_type_script = "uid://bfiaocyt6dkue"
 
-[sub_resource type="Resource" id="Resource_04x25"]
-script = ExtResource("10_uqdsr")
-sprite_id = "aiko"
-metadata/_custom_type_script = "uid://cjvlh12ua3bpk"
+[sub_resource type="Resource" id="Resource_0li75"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "I wasn’t in my room."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_sxsvc"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "I wasn’t anywhere I recognized. "
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_t3sxm"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "A low mechanical hum vibrated through the floor beneath me."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
 
 [sub_resource type="Resource" id="Resource_lcg47"]
 script = ExtResource("5_h21td")
@@ -56,24 +58,18 @@ sprite_id = "mc"
 sprite_texture = ExtResource("10_4srjr")
 metadata/_custom_type_script = "uid://bhom2dk8vu1sw"
 
+[sub_resource type="Resource" id="Resource_wdi5u"]
+script = ExtResource("8_1rv7p")
+sprite_id = "mc"
+size_y = 0.67
+metadata/_custom_type_script = "uid://cbdgahnqww7pf"
+
 [sub_resource type="Resource" id="Resource_u5vs0"]
 script = ExtResource("8_4srjr")
 sprite_id = "mc"
 position_x = 0.5
 position_y = 0.5
 metadata/_custom_type_script = "uid://sq4rx0n31x58"
-
-[sub_resource type="Resource" id="Resource_np1cm"]
-script = ExtResource("5_plig5")
-character = "???"
-text = "ha..hello?"
-metadata/_custom_type_script = "uid://bfiaocyt6dkue"
-
-[sub_resource type="Resource" id="Resource_wdi5u"]
-script = ExtResource("8_1rv7p")
-sprite_id = "mc"
-size_y = 0.67
-metadata/_custom_type_script = "uid://cbdgahnqww7pf"
 
 [sub_resource type="Resource" id="Resource_u6phu"]
 script = ExtResource("12_lcg47")
@@ -94,13 +90,223 @@ metadata/_custom_type_script = "uid://b7e2p3fyoft6p"
 script = ExtResource("14_wdi5u")
 metadata/_custom_type_script = "uid://dawdbwl8n6bbn"
 
+[sub_resource type="Resource" id="Resource_np1cm"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "“…You’re awake.”"
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
 [sub_resource type="Resource" id="Resource_ee35w"]
 script = ExtResource("5_plig5")
 character = "$mc"
-text = "my name is $mc"
+text = "The voice was soft. Not human-soft—more like it had been filtered through something artificial."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_ffcld"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "I turned."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_04x25"]
+script = ExtResource("10_uqdsr")
+sprite_id = "mc"
+metadata/_custom_type_script = "uid://cjvlh12ua3bpk"
+
+[sub_resource type="Resource" id="Resource_1rv7p"]
+script = ExtResource("5_h21td")
+sprite_id = "aiko"
+sprite_texture = ExtResource("7_h21td")
+metadata/_custom_type_script = "uid://bhom2dk8vu1sw"
+
+[sub_resource type="Resource" id="Resource_4srjr"]
+script = ExtResource("8_1rv7p")
+sprite_id = "aiko"
+size_y = 0.67
+metadata/_custom_type_script = "uid://cbdgahnqww7pf"
+
+[sub_resource type="Resource" id="Resource_uqdsr"]
+script = ExtResource("8_4srjr")
+sprite_id = "aiko"
+position_x = 0.5
+position_y = 0.5
+metadata/_custom_type_script = "uid://sq4rx0n31x58"
+
+[sub_resource type="Resource" id="Resource_ua1ga"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "A girl stood a few meters away."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_v0c48"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "She looked younger. Her clothing didn’t match any fashion I’d ever seen—sleek, form-fitting fabric lined with faint luminous patterns that pulsed like circuitry. Her eyes reflected the overhead lights strangely, as if there were something glass-like beneath the surface."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_wbyx5"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "“Where… is this?” I asked."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_gclyw"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "She tilted her head slightly."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_5gthh"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "“This place does not appear on any public registry.”"
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_5awcx"]
+script = ExtResource("10_uqdsr")
+sprite_id = "aiko"
+metadata/_custom_type_script = "uid://cjvlh12ua3bpk"
+
+[sub_resource type="Resource" id="Resource_mdegl"]
+script = ExtResource("5_h21td")
+sprite_id = "mc_feel_bad"
+sprite_texture = ExtResource("16_04x25")
+metadata/_custom_type_script = "uid://bhom2dk8vu1sw"
+
+[sub_resource type="Resource" id="Resource_n62am"]
+script = ExtResource("8_1rv7p")
+sprite_id = "mc_feel_bad"
+size_y = 0.67
+metadata/_custom_type_script = "uid://cbdgahnqww7pf"
+
+[sub_resource type="Resource" id="Resource_telf3"]
+script = ExtResource("8_4srjr")
+sprite_id = "mc_feel_bad"
+position_x = 0.5
+position_y = 0.5
+metadata/_custom_type_script = "uid://sq4rx0n31x58"
+
+[sub_resource type="Resource" id="Resource_310rn"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "“That’s not what I meant.”"
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_3ldfa"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "A pause."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_xhuwc"]
+script = ExtResource("10_uqdsr")
+sprite_id = "mc_feel_bad"
+metadata/_custom_type_script = "uid://cjvlh12ua3bpk"
+
+[sub_resource type="Resource" id="Resource_3s1y2"]
+script = ExtResource("5_h21td")
+sprite_id = "aiko1"
+sprite_texture = ExtResource("7_h21td")
+metadata/_custom_type_script = "uid://bhom2dk8vu1sw"
+
+[sub_resource type="Resource" id="Resource_ekyn6"]
+script = ExtResource("8_4srjr")
+sprite_id = "aiko1"
+position_x = 0.5
+position_y = 0.5
+metadata/_custom_type_script = "uid://sq4rx0n31x58"
+
+[sub_resource type="Resource" id="Resource_1kqci"]
+script = ExtResource("8_1rv7p")
+sprite_id = "aiko1"
+size_y = 0.67
+metadata/_custom_type_script = "uid://cbdgahnqww7pf"
+
+[sub_resource type="Resource" id="Resource_7r3ir"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "“…I do not remember how I arrived here either.”"
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_8py1c"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "Somewhere down the corridor, something metal scraped against metal."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_kj2mo"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "Slow. Deliberate."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_aneo0"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "We both froze."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_mxwtb"]
+script = ExtResource("10_uqdsr")
+sprite_id = "aiko1"
+metadata/_custom_type_script = "uid://cjvlh12ua3bpk"
+
+[sub_resource type="Resource" id="Resource_xnluf"]
+script = ExtResource("5_h21td")
+sprite_id = "mc_angry"
+sprite_texture = ExtResource("17_u6phu")
+metadata/_custom_type_script = "uid://bhom2dk8vu1sw"
+
+[sub_resource type="Resource" id="Resource_clryq"]
+script = ExtResource("8_4srjr")
+sprite_id = "mc_angry"
+position_x = 0.5
+position_y = 0.5
+metadata/_custom_type_script = "uid://sq4rx0n31x58"
+
+[sub_resource type="Resource" id="Resource_nueou"]
+script = ExtResource("8_1rv7p")
+sprite_id = "mc_angry"
+size_y = 0.67
+metadata/_custom_type_script = "uid://cbdgahnqww7pf"
+
+[sub_resource type="Resource" id="Resource_m715r"]
+script = ExtResource("5_plig5")
+character = "$mc"
+text = "“You heard that, right?” I whispered."
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_r2tu8"]
+script = ExtResource("10_uqdsr")
+sprite_id = "mc_angry"
+metadata/_custom_type_script = "uid://cjvlh12ua3bpk"
+
+[sub_resource type="Resource" id="Resource_incc5"]
+script = ExtResource("5_h21td")
+sprite_id = "aiko2"
+sprite_texture = ExtResource("7_h21td")
+metadata/_custom_type_script = "uid://bhom2dk8vu1sw"
+
+[sub_resource type="Resource" id="Resource_ems1d"]
+script = ExtResource("8_4srjr")
+sprite_id = "aiko2"
+position_x = 0.5
+position_y = 0.5
+metadata/_custom_type_script = "uid://sq4rx0n31x58"
+
+[sub_resource type="Resource" id="Resource_b6tbe"]
+script = ExtResource("8_1rv7p")
+sprite_id = "aiko2"
+size_y = 0.67
+metadata/_custom_type_script = "uid://cbdgahnqww7pf"
+
+[sub_resource type="Resource" id="Resource_h06xg"]
+script = ExtResource("5_plig5")
+character = "???"
+text = "“Yes.”"
 metadata/_custom_type_script = "uid://bfiaocyt6dkue"
 
 [resource]
 script = ExtResource("1_wcugn")
-story = Array[ExtResource("2_2x8il")]([SubResource("Resource_8uc51"), SubResource("Resource_1rv7p"), SubResource("Resource_4srjr"), SubResource("Resource_uqdsr"), SubResource("Resource_njuw8"), SubResource("Resource_04x25"), SubResource("Resource_lcg47"), SubResource("Resource_u5vs0"), SubResource("Resource_np1cm"), SubResource("Resource_wdi5u"), SubResource("Resource_darr1"), SubResource("Resource_0y3nt"), SubResource("Resource_ee35w")])
+story = Array[ExtResource("2_2x8il")]([SubResource("Resource_gh8tn"), SubResource("Resource_8uc51"), SubResource("Resource_njuw8"), SubResource("Resource_0li75"), SubResource("Resource_sxsvc"), SubResource("Resource_t3sxm"), SubResource("Resource_lcg47"), SubResource("Resource_wdi5u"), SubResource("Resource_u5vs0"), SubResource("Resource_darr1"), SubResource("Resource_0y3nt"), SubResource("Resource_np1cm"), SubResource("Resource_ee35w"), SubResource("Resource_ffcld"), SubResource("Resource_04x25"), SubResource("Resource_1rv7p"), SubResource("Resource_4srjr"), SubResource("Resource_uqdsr"), SubResource("Resource_ua1ga"), SubResource("Resource_v0c48"), SubResource("Resource_wbyx5"), SubResource("Resource_gclyw"), SubResource("Resource_5gthh"), SubResource("Resource_5awcx"), SubResource("Resource_mdegl"), SubResource("Resource_n62am"), SubResource("Resource_telf3"), SubResource("Resource_310rn"), SubResource("Resource_3ldfa"), SubResource("Resource_xhuwc"), SubResource("Resource_3s1y2"), SubResource("Resource_ekyn6"), SubResource("Resource_1kqci"), SubResource("Resource_7r3ir"), SubResource("Resource_8py1c"), SubResource("Resource_kj2mo"), SubResource("Resource_aneo0"), SubResource("Resource_mxwtb"), SubResource("Resource_xnluf"), SubResource("Resource_clryq"), SubResource("Resource_nueou"), SubResource("Resource_m715r"), SubResource("Resource_r2tu8"), SubResource("Resource_incc5"), SubResource("Resource_ems1d"), SubResource("Resource_b6tbe"), SubResource("Resource_h06xg")])
 metadata/_custom_type_script = "uid://dah8a2aoxcuqx"
