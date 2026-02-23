@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bv1of83gdmk34" path="res://data/maps/intro.tscn" id="1_saxkb"]
 [ext_resource type="Script" uid="uid://b8ob7hbxt66uj" path="res://src/game/stage/resource/resource.gd" id="1_vunbl"]
+[ext_resource type="Script" uid="uid://dp4lg8iuca7dr" path="res://src/game/stage/resource/wave.gd" id="2_kjiae"]
 [ext_resource type="Script" uid="uid://c7vw18ym5x7j7" path="res://src/game/stage/objectives/objective_resource.gd" id="2_vykbq"]
 [ext_resource type="Script" uid="uid://c1aamguww5mt3" path="res://src/resources/hook/hook_entry.gd" id="3_m6m3g"]
 [ext_resource type="PackedScene" uid="uid://r52hatpmrfic" path="res://src/game/stage/units/pieces/pawn.tscn" id="5_245bu"]
 [ext_resource type="Script" uid="uid://cjbro5r1l1exl" path="res://src/game/stage/resource/spawn_entry.gd" id="6_ajrjk"]
-[ext_resource type="Script" uid="uid://dp4lg8iuca7dr" path="res://src/game/stage/resource/wave.gd" id="2_kjiae"]
 [ext_resource type="Script" uid="uid://bpvelpg0snwj8" path="res://src/game/stage/objectives/objective_kill_all_enemies.gd" id="8_g6lft"]
 [ext_resource type="PackedScene" uid="uid://s6gonjg0so0f" path="res://src/game/stage/units/structures/base.tscn" id="10_16eba"]
 

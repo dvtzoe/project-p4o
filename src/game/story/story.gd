@@ -90,56 +90,11 @@ func load_story(story_data: Array[StoryEntry]) -> void:
             sprite.position_y = entry.position_y
             sprite._on_viewport_size_changed()
         
-        else:
-            print("Unknown story entry type: %s" % entry.type)
-    if not is_ready:
-        await scene_ready
-    for entry in story_data:
-        if entry is BackgroundStoryEntry:
-            if Config.config.debug_skip_story:
-                continue
-            var bg_texture = load(entry.file)
-            if not bg_texture:
-                print("Failed to load background texture: %s" % entry.file)
-            else:
-                background_texture_rect.texture = bg_texture
-        elif entry is DialogueStoryEntry:
-            if Config.config.debug_skip_story:
-                continue
-            if is_skipping:
-                name_label.text = entry.character
-                content_label.text = entry.text
-                continue
-            content_label.clear()
-            name_label.text = entry.character
-            full_text = entry.text
-            buffered_text = ""
-            char_index = 0
-            time_since_last_char = 0.0
-            is_streaming = true
-            await ui_accept_pressed
-            is_streaming = false
-        elif entry is ChoiceStoryEntry:
-            if Config.config.debug_skip_story:
-                continue
-            is_skipping = false
-            var choice_scene = preload("res://src/game/story/choice_container.tscn")
-            for i in range(entry.choices.size()):
-                var choice_instance = choice_scene.instantiate()
-                choice_instance.set("index", i)
-                choice_instance.connect("choice_made", Callable(self, "_on_choice_made"))
-                var button = choice_instance.get_node("Button")
-                button.text = entry.choices[i].text
-                choices_container.add_child(choice_instance)
-            var choice_index = await choice_made
-            print("Player chose option %d" % choice_index)
-            for child in choices_container.get_children():
-                child.queue_free()
-            
-        elif entry is StageStoryEntry:
-            Game.change_state(Game.States.STAGE)
-            Game.stage.start(entry.map)
-
+        elif entry is RemoveSpriteStoryEntry:
+            var sprite = sprites_node.get_node(entry.sprite_id) as StorySprite
+            sprite.queue_free()
+        
+        
         else:
             print("Unknown story entry type: %s" % entry.type)
 
