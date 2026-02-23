@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://cj311fapsmnhl"]
 
 [ext_resource type="PackedScene" uid="uid://ca1b3eq73qktg" path="res://src/game/place/place.tscn" id="1_isasw"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="2_mfyni"]
+[ext_resource type="Texture2D" uid="uid://b2t1tbvmkoavl" path="res://assets/backgrounds/place_0.png" id="2_isasw"]
 
 [node name="Altar" unique_id=383223676 instance=ExtResource("1_isasw")]
 
 [node name="Background" parent="." index="0" unique_id=951191000]
-texture = ExtResource("2_mfyni")
+texture = ExtResource("2_isasw")
+
+[node name="TravelButton" parent="." index="2" unique_id=1687221582]
+offset_left = -192.0
+offset_top = -128.0
+offset_right = 0.0
+offset_bottom = 0.0
