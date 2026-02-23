@@ -72,10 +72,16 @@ func load_story(story_data: Array[StoryEntry]) -> void:
             Game.stage.start(entry.map)
 
         elif entry is NewSpriteStoryEntry:
-            var sprite_instance := STORY_SPRITE_SCENE.instantiate() as TextureRect
+            var sprite_instance := STORY_SPRITE_SCENE.instantiate() as Sprite2D
             sprite_instance.texture = entry.sprite_texture
             sprite_instance.name = entry.sprite_id
             sprites_node.add_child(sprite_instance)
+
+        elif entry is SetSpriteSizeStoryEntry:
+            var sprite = sprites_node.get_node(entry.sprite_id) as StorySprite
+            sprite.size_y = entry.size_y
+            sprite._on_viewport_size_changed()
+            get_viewport().size_changed.connect(sprite._on_viewport_size_changed)
 
         else:
             print("Unknown story entry type: %s" % entry.type)

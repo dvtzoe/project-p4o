@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://jdjp2qg1188a"]
 
-[node name="StorySprite" type="TextureRect" unique_id=565401780]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 4
+[ext_resource type="Script" uid="uid://vrydxn5cvlrh" path="res://src/game/story/story_sprite.gd" id="1_ucotf"]
+
+[node name="StorySprite" type="Sprite2D" unique_id=840998535]
+script = ExtResource("1_ucotf")

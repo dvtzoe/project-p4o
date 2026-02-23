@@ -25,6 +25,8 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 6
 
+[node name="Sprites" type="Node2D" parent="." unique_id=867863101]
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=698211296]
 layout_mode = 1
 anchors_preset = -1
@@ -88,5 +90,3 @@ anchor_right = 0.5
 anchor_bottom = 0.4
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Sprites" type="Node" parent="." unique_id=1762193873]
