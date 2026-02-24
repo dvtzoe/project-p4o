@@ -77,6 +77,7 @@ func load_story(story_data: Array[StoryEntry]) -> void:
         elif entry is StageStoryEntry:
             Game.change_state(Game.States.STAGE)
             Game.stage.start(entry.stage)
+            return
 
         elif entry is NewSpriteStoryEntry:
             var sprite_instance := STORY_SPRITE_SCENE.instantiate() as StorySprite
@@ -98,8 +99,9 @@ func load_story(story_data: Array[StoryEntry]) -> void:
             sprite._on_viewport_size_changed()
         
         elif entry is RemoveSpriteStoryEntry:
-            var sprite = sprites_node.get_node(entry.sprite_id) as StorySprite
-            sprite.queue_free()
+            var sprite = sprites_node.get_node_or_null(entry.sprite_id) as StorySprite
+            if sprite:
+                sprite.queue_free()
         
         elif entry is EnterCharName:
             var enter_name_instance = ENTER_NAME_SCENE.instantiate() as EnterName
@@ -107,7 +109,7 @@ func load_story(story_data: Array[StoryEntry]) -> void:
             await enter_name_instance.name_entered
 
         else:
-            print("Unknown story entry type: %s" % entry.type)
+            print("Unknown story entry type: %s" % entry)
 
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed or event.is_action_pressed("ui_accept"):
