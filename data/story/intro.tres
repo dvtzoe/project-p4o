@@ -17,6 +17,16 @@
 [ext_resource type="Script" uid="uid://dawdbwl8n6bbn" path="res://src/game/story/resource/sprite/enter_name.gd" id="14_wdi5u"]
 [ext_resource type="Texture2D" uid="uid://31hg7cnse26e" path="res://assets/character/mc/mc_feel_bad.png" id="16_04x25"]
 [ext_resource type="Texture2D" uid="uid://cctljve0b5lkh" path="res://assets/character/mc/mc_angry.png" id="17_u6phu"]
+[ext_resource type="Script" uid="uid://c8v1jecfa7h44" path="res://src/game/story/resource/stage_entry.gd" id="18_ua1ga"]
+[ext_resource type="Script" uid="uid://c1aamguww5mt3" path="res://src/resources/hook/hook_entry.gd" id="19_v0c48"]
+[ext_resource type="Script" uid="uid://bav85hlqapum6" path="res://src/resources/hook/story_hook.gd" id="20_t3sxm"]
+[ext_resource type="Script" uid="uid://dp4lg8iuca7dr" path="res://src/game/stage/resource/wave.gd" id="21_ffcld"]
+[ext_resource type="Script" uid="uid://cjbro5r1l1exl" path="res://src/game/stage/resource/spawn_entry.gd" id="22_wbyx5"]
+[ext_resource type="PackedScene" uid="uid://bv1of83gdmk34" path="res://data/maps/intro.tscn" id="23_gclyw"]
+[ext_resource type="PackedScene" uid="uid://s6gonjg0so0f" path="res://src/game/stage/units/structures/base.tscn" id="23_t3sxm"]
+[ext_resource type="Script" uid="uid://c7vw18ym5x7j7" path="res://src/game/stage/objectives/objective_resource.gd" id="24_5gthh"]
+[ext_resource type="PackedScene" uid="uid://r52hatpmrfic" path="res://src/game/stage/units/pieces/pawn.tscn" id="24_ffcld"]
+[ext_resource type="Script" uid="uid://b8ob7hbxt66uj" path="res://src/game/stage/resource/resource.gd" id="25_5awcx"]
 
 [sub_resource type="Resource" id="Resource_gh8tn"]
 script = ExtResource("4_plig5")
@@ -306,7 +316,47 @@ character = "???"
 text = "“Yes.”"
 metadata/_custom_type_script = "uid://bfiaocyt6dkue"
 
+[sub_resource type="Resource" id="Resource_ojnt5"]
+script = ExtResource("5_plig5")
+character = "$mc "
+text = "They're around here!"
+metadata/_custom_type_script = "uid://bfiaocyt6dkue"
+
+[sub_resource type="Resource" id="Resource_6ixlk"]
+script = ExtResource("20_t3sxm")
+story = Array[ExtResource("2_2x8il")]([SubResource("Resource_ojnt5")])
+metadata/_custom_type_script = "uid://bav85hlqapum6"
+
+[sub_resource type="Resource" id="Resource_tbk0p"]
+script = ExtResource("22_wbyx5")
+unit_type = ExtResource("23_t3sxm")
+metadata/_custom_type_script = "uid://cjbro5r1l1exl"
+
+[sub_resource type="Resource" id="Resource_1ox72"]
+script = ExtResource("22_wbyx5")
+unit_type = ExtResource("24_ffcld")
+coord = Vector2i(1, 0)
+team = 1
+metadata/_custom_type_script = "uid://cjbro5r1l1exl"
+
+[sub_resource type="Resource" id="Resource_2ujm4"]
+script = ExtResource("21_ffcld")
+spawn = Array[ExtResource("22_wbyx5")]([SubResource("Resource_tbk0p"), SubResource("Resource_1ox72")])
+hooks = Array[ExtResource("19_v0c48")]([SubResource("Resource_6ixlk")])
+metadata/_custom_type_script = "uid://dp4lg8iuca7dr"
+
+[sub_resource type="Resource" id="Resource_whdru"]
+script = ExtResource("25_5awcx")
+map = ExtResource("23_gclyw")
+initial_wave = SubResource("Resource_2ujm4")
+metadata/_custom_type_script = "uid://b8ob7hbxt66uj"
+
+[sub_resource type="Resource" id="Resource_hadg3"]
+script = ExtResource("18_ua1ga")
+stage = SubResource("Resource_whdru")
+metadata/_custom_type_script = "uid://c8v1jecfa7h44"
+
 [resource]
 script = ExtResource("1_wcugn")
-story = Array[ExtResource("2_2x8il")]([SubResource("Resource_gh8tn"), SubResource("Resource_8uc51"), SubResource("Resource_njuw8"), SubResource("Resource_0li75"), SubResource("Resource_sxsvc"), SubResource("Resource_t3sxm"), SubResource("Resource_lcg47"), SubResource("Resource_wdi5u"), SubResource("Resource_u5vs0"), SubResource("Resource_darr1"), SubResource("Resource_0y3nt"), SubResource("Resource_np1cm"), SubResource("Resource_ee35w"), SubResource("Resource_ffcld"), SubResource("Resource_04x25"), SubResource("Resource_1rv7p"), SubResource("Resource_4srjr"), SubResource("Resource_uqdsr"), SubResource("Resource_ua1ga"), SubResource("Resource_v0c48"), SubResource("Resource_wbyx5"), SubResource("Resource_gclyw"), SubResource("Resource_5gthh"), SubResource("Resource_5awcx"), SubResource("Resource_mdegl"), SubResource("Resource_n62am"), SubResource("Resource_telf3"), SubResource("Resource_310rn"), SubResource("Resource_3ldfa"), SubResource("Resource_xhuwc"), SubResource("Resource_3s1y2"), SubResource("Resource_ekyn6"), SubResource("Resource_1kqci"), SubResource("Resource_7r3ir"), SubResource("Resource_8py1c"), SubResource("Resource_kj2mo"), SubResource("Resource_aneo0"), SubResource("Resource_mxwtb"), SubResource("Resource_xnluf"), SubResource("Resource_clryq"), SubResource("Resource_nueou"), SubResource("Resource_m715r"), SubResource("Resource_r2tu8"), SubResource("Resource_incc5"), SubResource("Resource_ems1d"), SubResource("Resource_b6tbe"), SubResource("Resource_h06xg")])
+story = Array[ExtResource("2_2x8il")]([SubResource("Resource_gh8tn"), SubResource("Resource_8uc51"), SubResource("Resource_njuw8"), SubResource("Resource_0li75"), SubResource("Resource_sxsvc"), SubResource("Resource_t3sxm"), SubResource("Resource_lcg47"), SubResource("Resource_wdi5u"), SubResource("Resource_u5vs0"), SubResource("Resource_darr1"), SubResource("Resource_0y3nt"), SubResource("Resource_np1cm"), SubResource("Resource_ee35w"), SubResource("Resource_ffcld"), SubResource("Resource_04x25"), SubResource("Resource_1rv7p"), SubResource("Resource_4srjr"), SubResource("Resource_uqdsr"), SubResource("Resource_ua1ga"), SubResource("Resource_v0c48"), SubResource("Resource_wbyx5"), SubResource("Resource_gclyw"), SubResource("Resource_5gthh"), SubResource("Resource_5awcx"), SubResource("Resource_mdegl"), SubResource("Resource_n62am"), SubResource("Resource_telf3"), SubResource("Resource_310rn"), SubResource("Resource_3ldfa"), SubResource("Resource_xhuwc"), SubResource("Resource_3s1y2"), SubResource("Resource_ekyn6"), SubResource("Resource_1kqci"), SubResource("Resource_7r3ir"), SubResource("Resource_8py1c"), SubResource("Resource_kj2mo"), SubResource("Resource_aneo0"), SubResource("Resource_mxwtb"), SubResource("Resource_xnluf"), SubResource("Resource_clryq"), SubResource("Resource_nueou"), SubResource("Resource_m715r"), SubResource("Resource_r2tu8"), SubResource("Resource_incc5"), SubResource("Resource_ems1d"), SubResource("Resource_b6tbe"), SubResource("Resource_h06xg"), SubResource("Resource_hadg3")])
 metadata/_custom_type_script = "uid://dah8a2aoxcuqx"

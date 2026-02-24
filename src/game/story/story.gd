@@ -76,7 +76,7 @@ func load_story(story_data: Array[StoryEntry]) -> void:
             
         elif entry is StageStoryEntry:
             Game.change_state(Game.States.STAGE)
-            Game.stage.start(entry.map)
+            Game.stage.start(entry.stage)
 
         elif entry is NewSpriteStoryEntry:
             var sprite_instance := STORY_SPRITE_SCENE.instantiate() as StorySprite
